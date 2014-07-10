@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *othersigninLabel;
 @property (weak, nonatomic) IBOutlet UIButton *googleLoginButton;
 @property (weak, nonatomic) IBOutlet UIImageView *tagLoginView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -49,16 +50,24 @@
 #pragma mark-initUI
 
 -(void)initUI {
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_g_pressed"] forState:UIControlStateHighlighted];
     [self.forgetPassworkButton setTitleColor:[self colorWithHexString:@"#94BDCF"] forState:UIControlStateNormal];
+    
     [self.cerateAccount setTitleColor:[self colorWithHexString:@"#94BDCF"] forState:UIControlStateNormal];
     
     [self.othersigninLabel setTextColor:[self colorWithHexString:@"#A6C7CF"]];
-    
+
     
     [self.view setBackgroundColor:[self colorWithHexString:@"#dfe8e9"]];
     [self.passwordField setTextColor:[self colorWithHexString:@"#69a3b8"]];
+    UIImageView *image=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_login_password"]];
+    self.passwordField.leftView=image;
+    self.passwordField.leftViewMode = UITextFieldViewModeAlways;
+
     [self.usernameField setTextColor:[self colorWithHexString:@"#69a3b8"]];
-    
+    UIImageView *image2=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_login_uername"]];
+    self.usernameField.leftView=image2;
+    self.usernameField.leftViewMode = UITextFieldViewModeAlways;
     
     [self.line1 setBackgroundColor:[self colorWithHexString:@"#C2D6DB"]];
     [self.line2 setBackgroundColor:[self colorWithHexString:@"#C2D6DB"]];
@@ -66,7 +75,7 @@
     
     [self.googleLoginButton setBackgroundImage:[UIImage imageNamed:@"btn_googleLogin_pressed"] forState:UIControlStateHighlighted];
     
-    [self.tagLoginView setImage:[UIImage imageNamed:@"tag_login"]];
+    //[self.tagLoginView setImage:[UIImage imageNamed:@"tag_login"]];
 }
 
 - (UIColor *) colorWithHexString: (NSString *)color {
