@@ -124,7 +124,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="btn_googlelogin"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tag_login" translatesAutoresizingMaskIntoConstraints="NO" id="TJC-9O-0qf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag_login" translatesAutoresizingMaskIntoConstraints="NO" id="TJC-9O-0qf">
                                 <rect key="frame" x="0.0" y="0.0" width="52" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -157,6 +157,7 @@
                             <constraint firstItem="U2t-2z-cIe" firstAttribute="bottom" secondItem="eoX-ug-x5w" secondAttribute="bottom" constant="8" id="Ohc-Iv-vex"/>
                             <constraint firstItem="K5m-MV-IMu" firstAttribute="trailing" secondItem="AMO-di-7bI" secondAttribute="trailing" id="SgI-Na-YDV"/>
                             <constraint firstItem="sCn-eu-pDt" firstAttribute="centerX" secondItem="UE8-Q5-2ua" secondAttribute="centerX" id="Vcy-nO-qXb"/>
+                            <constraint firstItem="TJC-9O-0qf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ViR-zr-ZUy"/>
                             <constraint firstItem="2D8-kG-Anz" firstAttribute="leading" secondItem="AMO-di-7bI" secondAttribute="leading" id="WUw-Vi-XcH"/>
                             <constraint firstItem="vgq-xh-W4k" firstAttribute="bottom" secondItem="U2t-2z-cIe" secondAttribute="bottom" id="crr-T7-K64"/>
                             <constraint firstItem="tbJ-cB-1Kb" firstAttribute="top" secondItem="vgq-xh-W4k" secondAttribute="bottom" constant="42" id="grq-hH-uaQ"/>
