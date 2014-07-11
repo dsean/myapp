@@ -41,6 +41,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passTextField_DidEndOnExit:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="HJc-EX-Bh1"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" minimumFontSize="17" background="textfield_login_top" disabledBackground="ic_login_uername" translatesAutoresizingMaskIntoConstraints="NO" id="2D8-kG-Anz">
                                 <rect key="frame" x="15" y="65" width="290" height="45"/>
@@ -52,6 +55,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameTextField_DidEndOnExit:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="EgU-fa-HRd"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgq-xh-W4k">
                                 <rect key="frame" x="36" y="239" width="116" height="26"/>

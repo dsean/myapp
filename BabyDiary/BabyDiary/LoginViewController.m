@@ -16,14 +16,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *line1;
 @property (weak, nonatomic) IBOutlet UILabel *line2;
 @property (weak, nonatomic) IBOutlet UILabel *line3;
+@property (weak, nonatomic) IBOutlet UILabel *othersigninLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *forgetPassworkButton;
 @property (weak, nonatomic) IBOutlet UIButton *cerateAccountButton;
-@property (weak, nonatomic) IBOutlet UILabel *othersigninLabel;
 @property (weak, nonatomic) IBOutlet UIButton *googleLoginButton;
-@property (weak, nonatomic) IBOutlet UIImageView *tagLoginView;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
+@property (weak, nonatomic) IBOutlet UIImageView *tagLoginView;
 @end
 
 @implementation LoginViewController
@@ -49,6 +49,18 @@
 
 
 #pragma mark-initUI
+
+- (IBAction)nameTextField_DidEndOnExit:(id)sender {
+    // foucus on next feild
+    [self.passwordField becomeFirstResponder];
+}
+
+- (IBAction)passTextField_DidEndOnExit:(id)sender {
+    // hide
+    [sender resignFirstResponder];
+    // to login
+    [self.loginButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+}
 
 - (BOOL)shouldAutorotate {
     return NO;
