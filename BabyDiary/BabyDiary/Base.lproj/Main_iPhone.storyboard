@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5m-MV-IMu">
-                                <rect key="frame" x="15" y="185" width="290" height="44"/>
+                                <rect key="frame" x="15" y="175" width="290" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="eKn-6b-BpE"/>
@@ -33,7 +33,7 @@
                                 <state key="selected" backgroundImage="btn_g_pressed"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" minimumFontSize="17" background="textfield_login_btm" disabledBackground="ic_login_password" translatesAutoresizingMaskIntoConstraints="NO" id="AMO-di-7bI">
-                                <rect key="frame" x="15" y="120" width="290" height="45"/>
+                                <rect key="frame" x="15" y="110" width="290" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -43,7 +43,7 @@
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" minimumFontSize="17" background="textfield_login_top" disabledBackground="ic_login_uername" translatesAutoresizingMaskIntoConstraints="NO" id="2D8-kG-Anz">
-                                <rect key="frame" x="15" y="75" width="290" height="45"/>
+                                <rect key="frame" x="15" y="65" width="290" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -53,8 +53,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgq-xh-W4k">
-                                <rect key="frame" x="36" y="249" width="116" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgq-xh-W4k">
+                                <rect key="frame" x="36" y="239" width="116" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <state key="normal" title="FORET PASSWORD?">
@@ -62,7 +62,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE8-Q5-2ua">
-                                <rect key="frame" x="160" y="249" width="1" height="23"/>
+                                <rect key="frame" x="160" y="239" width="1" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="GfW-Dn-j9I"/>
@@ -72,8 +72,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2t-2z-cIe">
-                                <rect key="frame" x="169" y="249" width="107" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2t-2z-cIe">
+                                <rect key="frame" x="169" y="239" width="107" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <state key="normal" title="CERATE ACCOUNT">
@@ -81,7 +81,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbJ-cB-1Kb">
-                                <rect key="frame" x="64" y="317" width="24" height="1"/>
+                                <rect key="frame" x="64" y="307" width="24" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.33311844909999999" green="1" blue="0.37476726459999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -93,7 +93,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQN-lJ-vKj">
-                                <rect key="frame" x="233" y="317" width="24" height="1"/>
+                                <rect key="frame" x="233" y="307" width="24" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.33311844909999999" green="1" blue="0.37476726459999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -105,7 +105,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or Sign in With" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCn-eu-pDt">
-                                <rect key="frame" x="103" y="302" width="115" height="30"/>
+                                <rect key="frame" x="103" y="292" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XeE-vr-9L0"/>
@@ -114,19 +114,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-5c-CZL">
-                                <rect key="frame" x="125" y="352" width="70" height="70"/>
+                                <rect key="frame" x="125" y="342" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="btn_googlelogin"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tag_login" translatesAutoresizingMaskIntoConstraints="NO" id="TJC-9O-0qf">
-                                <rect key="frame" x="0.0" y="20" width="52" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="52" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TJC-9O-0qf" secondAttribute="height" multiplier="49:47" id="8YZ-Fc-gyP"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q83-Lj-pdT">
-                                <rect key="frame" x="279" y="252" width="12" height="18"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoX-ug-x5w">
+                                <rect key="frame" x="284" y="245" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="ic_create">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,12 +145,14 @@
                             <constraint firstItem="2D8-kG-Anz" firstAttribute="centerX" secondItem="AMO-di-7bI" secondAttribute="centerX" id="FEt-o3-1kO"/>
                             <constraint firstItem="UE8-Q5-2ua" firstAttribute="leading" secondItem="vgq-xh-W4k" secondAttribute="trailing" constant="8" symbolic="YES" id="Fv8-x3-Krs"/>
                             <constraint firstAttribute="centerY" secondItem="UE8-Q5-2ua" secondAttribute="centerY" constant="-20" id="IGd-VG-JPb"/>
+                            <constraint firstItem="U2t-2z-cIe" firstAttribute="centerY" secondItem="eoX-ug-x5w" secondAttribute="centerY" constant="1" id="JxF-rE-1NL"/>
+                            <constraint firstItem="eoX-ug-x5w" firstAttribute="leading" secondItem="U2t-2z-cIe" secondAttribute="trailing" constant="8" id="L4i-y1-QBV"/>
                             <constraint firstItem="U2t-2z-cIe" firstAttribute="leading" secondItem="UE8-Q5-2ua" secondAttribute="trailing" constant="8" symbolic="YES" id="OOm-c0-M51"/>
+                            <constraint firstItem="U2t-2z-cIe" firstAttribute="bottom" secondItem="eoX-ug-x5w" secondAttribute="bottom" constant="8" id="Ohc-Iv-vex"/>
                             <constraint firstItem="K5m-MV-IMu" firstAttribute="trailing" secondItem="AMO-di-7bI" secondAttribute="trailing" id="SgI-Na-YDV"/>
                             <constraint firstItem="sCn-eu-pDt" firstAttribute="centerX" secondItem="UE8-Q5-2ua" secondAttribute="centerX" id="Vcy-nO-qXb"/>
                             <constraint firstItem="2D8-kG-Anz" firstAttribute="leading" secondItem="AMO-di-7bI" secondAttribute="leading" id="WUw-Vi-XcH"/>
-                            <constraint firstItem="Q83-Lj-pdT" firstAttribute="top" secondItem="K5m-MV-IMu" secondAttribute="bottom" constant="23" id="YLV-Xh-MWG"/>
-                            <constraint firstItem="Q83-Lj-pdT" firstAttribute="leading" secondItem="U2t-2z-cIe" secondAttribute="trailing" constant="3" id="dlF-9g-t5Q"/>
+                            <constraint firstItem="vgq-xh-W4k" firstAttribute="bottom" secondItem="U2t-2z-cIe" secondAttribute="bottom" id="crr-T7-K64"/>
                             <constraint firstItem="tbJ-cB-1Kb" firstAttribute="top" secondItem="vgq-xh-W4k" secondAttribute="bottom" constant="42" id="grq-hH-uaQ"/>
                             <constraint firstItem="WDF-5c-CZL" firstAttribute="top" secondItem="sCn-eu-pDt" secondAttribute="bottom" constant="20" id="h8v-DU-EqF"/>
                             <constraint firstItem="2D8-kG-Anz" firstAttribute="leading" secondItem="K5m-MV-IMu" secondAttribute="leading" id="hBD-mo-gbj"/>
@@ -163,9 +165,8 @@
                             <constraint firstItem="U2t-2z-cIe" firstAttribute="top" secondItem="K5m-MV-IMu" secondAttribute="bottom" constant="20" id="yei-lG-lyj"/>
                         </constraints>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="cerateAccount" destination="U2t-2z-cIe" id="NpG-Id-1Rf"/>
+                        <outlet property="cerateAccountButton" destination="U2t-2z-cIe" id="cNX-Ab-yyk"/>
                         <outlet property="forgetPassworkButton" destination="vgq-xh-W4k" id="Khe-VA-Ker"/>
                         <outlet property="googleLoginButton" destination="WDF-5c-CZL" id="kvE-Mm-yU4"/>
                         <outlet property="line1" destination="UE8-Q5-2ua" id="q1L-HS-CQW"/>

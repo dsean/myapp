@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *line3;
 
 @property (weak, nonatomic) IBOutlet UIButton *forgetPassworkButton;
-@property (weak, nonatomic) IBOutlet UIButton *cerateAccount;
+@property (weak, nonatomic) IBOutlet UIButton *cerateAccountButton;
 @property (weak, nonatomic) IBOutlet UILabel *othersigninLabel;
 @property (weak, nonatomic) IBOutlet UIButton *googleLoginButton;
 @property (weak, nonatomic) IBOutlet UIImageView *tagLoginView;
@@ -36,30 +36,38 @@
     
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
     [self initUI];
-    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.passwordField resignFirstResponder];
     [self.usernameField resignFirstResponder];
+    
 }
+
 
 #pragma mark-initUI
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
 -(void)initUI {
+    
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_g_pressed"] forState:UIControlStateHighlighted];
     
+    [self.forgetPassworkButton setTitleColor:[self colorWithHexString:@"#94BDCF"] forState:UIControlStateNormal];
+    [self.forgetPassworkButton setTitleColor:[self colorWithHexString:@"#FFFFFF"] forState:UIControlStateHighlighted];
     
-    [self.forgetPassworkButton setTintColor:[self colorWithHexString:@"#94BDCF"]];
-    [self.cerateAccount setTintColor:[self colorWithHexString:@"#94BDCF"]];
+    [self.cerateAccountButton setTitleColor:[self colorWithHexString:@"#94BDCF"] forState:UIControlStateNormal];
+    [self.cerateAccountButton setTitleColor:[self colorWithHexString:@"#FFFFFF"] forState:UIControlStateHighlighted];
     
     [self.othersigninLabel setTextColor:[self colorWithHexString:@"#A6C7CF"]];
 
-    
     [self.view setBackgroundColor:[self colorWithHexString:@"#dfe8e9"]];
+    
     [self.passwordField setTextColor:[self colorWithHexString:@"#69a3b8"]];
     UIImageView *image=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_login_password"]];
     self.passwordField.leftView=image;
@@ -74,9 +82,8 @@
     [self.line2 setBackgroundColor:[self colorWithHexString:@"#C2D6DB"]];
     [self.line3 setBackgroundColor:[self colorWithHexString:@"#C2D6DB"]];
     
-    //[self.googleLoginButton setBackgroundImage:[UIImage imageNamed:@"btn_googleLogin_pressed"] forState:UIControlStateHighlighted];
+    [self.googleLoginButton setBackgroundImage:[UIImage imageNamed:@"btn_googleLogin_pressed"] forState:UIControlStateHighlighted];
     
-    // [self.tagLoginView setImage:[UIImage imageNamed:@"tag_login"]];
 }
 
 - (UIColor *) colorWithHexString: (NSString *)color {
