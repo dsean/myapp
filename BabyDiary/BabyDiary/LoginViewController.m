@@ -51,9 +51,10 @@
 
 -(void)initUI {
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"btn_g_pressed"] forState:UIControlStateHighlighted];
-    [self.forgetPassworkButton setTitleColor:[self colorWithHexString:@"#94BDCF"] forState:UIControlStateNormal];
     
-    [self.cerateAccount setTitleColor:[self colorWithHexString:@"#94BDCF"] forState:UIControlStateNormal];
+    
+    [self.forgetPassworkButton setTintColor:[self colorWithHexString:@"#94BDCF"]];
+    [self.cerateAccount setTintColor:[self colorWithHexString:@"#94BDCF"]];
     
     [self.othersigninLabel setTextColor:[self colorWithHexString:@"#A6C7CF"]];
 
@@ -73,9 +74,9 @@
     [self.line2 setBackgroundColor:[self colorWithHexString:@"#C2D6DB"]];
     [self.line3 setBackgroundColor:[self colorWithHexString:@"#C2D6DB"]];
     
-    [self.googleLoginButton setBackgroundImage:[UIImage imageNamed:@"btn_googleLogin_pressed"] forState:UIControlStateHighlighted];
+    //[self.googleLoginButton setBackgroundImage:[UIImage imageNamed:@"btn_googleLogin_pressed"] forState:UIControlStateHighlighted];
     
-    //[self.tagLoginView setImage:[UIImage imageNamed:@"tag_login"]];
+    // [self.tagLoginView setImage:[UIImage imageNamed:@"tag_login"]];
 }
 
 - (UIColor *) colorWithHexString: (NSString *)color {

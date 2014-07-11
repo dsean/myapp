@@ -18,17 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5m-MV-IMu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5m-MV-IMu">
                                 <rect key="frame" x="15" y="185" width="290" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="eKn-6b-BpE"/>
                                     <constraint firstAttribute="height" constant="44" id="uyn-qH-Hmn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="LOGIN" backgroundImage="btn_g">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled" backgroundImage="btn_g_disabled"/>
+                                <state key="selected" backgroundImage="btn_g_pressed"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" minimumFontSize="17" background="textfield_login_btm" disabledBackground="ic_login_password" translatesAutoresizingMaskIntoConstraints="NO" id="AMO-di-7bI">
                                 <rect key="frame" x="15" y="120" width="290" height="45"/>
@@ -161,6 +163,7 @@
                             <constraint firstItem="U2t-2z-cIe" firstAttribute="top" secondItem="K5m-MV-IMu" secondAttribute="bottom" constant="20" id="yei-lG-lyj"/>
                         </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="cerateAccount" destination="U2t-2z-cIe" id="NpG-Id-1Rf"/>
                         <outlet property="forgetPassworkButton" destination="vgq-xh-W4k" id="Khe-VA-Ker"/>
@@ -182,6 +185,8 @@
     </scenes>
     <resources>
         <image name="btn_g" width="290" height="44"/>
+        <image name="btn_g_disabled" width="290" height="44"/>
+        <image name="btn_g_pressed" width="290" height="44"/>
         <image name="btn_googlelogin" width="70" height="70"/>
         <image name="ic_create" width="12" height="12"/>
         <image name="ic_login_password" width="35" height="14"/>
