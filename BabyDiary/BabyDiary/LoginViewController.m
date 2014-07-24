@@ -90,7 +90,7 @@
     self.loginManage.text = @"Log in...";
     [self.satLogin prepard];
     [self.satLogin satLogin];   
-    
+    self.loginManage.text = [NSString stringWithFormat:@"%@",self.satLogin.satLoginBool ? @"YES" : @"NO"];
 }
 
 @end

@@ -15,6 +15,8 @@
 #include "sat_sdk_lib_license.h"
 #include "IP2PServiceMonitor.h"
 #endif
+
+#import "SatDevice.h"
 @interface SatManager : NSObject {
     NSString *lastServiceType;
     NSString *lastDeviceType;
@@ -22,6 +24,9 @@
 
 @property (nonatomic, copy) NSString *satUsername;
 @property (nonatomic, copy) NSString *satPassword;
+@property (nonatomic, copy) NSMutableDictionary *myDeviceEntries;
+
+
 
 #ifdef __cplusplus
 - (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType :(IP2PSATRequest *)p_sat_request;

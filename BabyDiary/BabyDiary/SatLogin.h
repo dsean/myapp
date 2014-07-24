@@ -8,13 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SatManager.h"
-#ifdef __cplusplus
-#include "sat_sdk_lib_config.h"
-#include "sat_sdk_lib_debug.h"
-#include "sat_sdk_lib_client.h"
-#include "sat_sdk_lib_license.h"
-#include "IP2PServiceMonitor.h"
-#endif
+
 @interface SatLogin : NSObject {
     // SAT SDK
 #ifdef __cplusplus
@@ -36,7 +30,8 @@
 @property (nonatomic, assign, readonly) NSInteger satServerPort;
 @property (nonatomic, copy, readonly) NSString *signalServer;
 @property (nonatomic, retain, readonly) NSArray *signalServerPorts;
-
+@property (nonatomic) BOOL satLoginBool;
+@property (strong, nonatomic) NSMutableDictionary *myDeviceEntries;
 - (void)prepard;
 - (void)satLogin;
 @end

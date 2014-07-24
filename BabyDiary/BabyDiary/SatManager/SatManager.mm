@@ -9,22 +9,26 @@
 #import "SatManager.h"
 
 @implementation SatManager
-@synthesize satPassword, satUsername;
+@synthesize satPassword, satUsername, myDeviceEntries;
 
+-(NSMutableDictionary *)myDeviceEntries {
+    if (!myDeviceEntries) {
+        myDeviceEntries = [[NSMutableDictionary alloc] init];
+    }
+    return myDeviceEntries;
+}
 
 - (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType :(IP2PSATRequest *)p_sat_request {
     lastServiceType = serviceType;
     lastDeviceType = deviceType;
     
     // Get device list.
-    const std::vector<DeviceEntry *> *deviceEntries;
-    
+    const std::vector<DeviceEntry *> *deviceEntries = NULL;
     
     if (p_sat_request == NULL) {
             
         return -1;
     }
-        
     int ret=-1;
     int getDeviceEntryListRetry=0;
     while(getDeviceEntryListRetry<2 && ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
@@ -40,6 +44,8 @@
         satPassword = @"";
         return ret;
     }
+    myDeviceEntries = [SatDevice parseMyDevices:deviceEntries];
+    
     return 0;
 }
 

@@ -37,6 +37,7 @@
 		14B9FEBF19809E3900EB0C75 /* SatManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9FEBE19809E3900EB0C75 /* SatManager.mm */; };
 		14B9FEC119809E6400EB0C75 /* license in Resources */ = {isa = PBXBuildFile; fileRef = 14B9FEC019809E6400EB0C75 /* license */; };
 		14B9FEC41980ABCF00EB0C75 /* SatLogin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9FEC31980ABCF00EB0C75 /* SatLogin.mm */; };
+		14B9FECA198111AC00EB0C75 /* SatDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9FEC9198111AC00EB0C75 /* SatDevice.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +242,8 @@
 		14B9FEC019809E6400EB0C75 /* license */ = {isa = PBXFileReference; lastKnownFileType = file; path = license; sourceTree = "<group>"; };
 		14B9FEC21980ABCF00EB0C75 /* SatLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatLogin.h; sourceTree = "<group>"; };
 		14B9FEC31980ABCF00EB0C75 /* SatLogin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SatLogin.mm; sourceTree = "<group>"; };
+		14B9FEC8198111AC00EB0C75 /* SatDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SatDevice.h; path = SatManager/SatDevice.h; sourceTree = "<group>"; };
+		14B9FEC9198111AC00EB0C75 /* SatDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SatDevice.mm; path = SatManager/SatDevice.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,6 +618,8 @@
 			children = (
 				14B9FEBD19809E3900EB0C75 /* SatManager.h */,
 				14B9FEBE19809E3900EB0C75 /* SatManager.mm */,
+				14B9FEC8198111AC00EB0C75 /* SatDevice.h */,
+				14B9FEC9198111AC00EB0C75 /* SatDevice.mm */,
 			);
 			name = SatManager;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B9FECA198111AC00EB0C75 /* SatDevice.mm in Sources */,
 				147D6A73196E859700870C5D /* LoginViewController.m in Sources */,
 				144B0C65196BFD7E00166644 /* AppDelegate.m in Sources */,
 				14B9FEC41980ABCF00EB0C75 /* SatLogin.mm in Sources */,

@@ -11,7 +11,7 @@
 @property (strong, nonatomic) SatManager *satManager;
 @end
 @implementation SatLogin
-@synthesize satServer, satServerPort, signalServer, signalServerPorts;
+@synthesize satServer, satServerPort, signalServer, signalServerPorts, satLoginBool, myDeviceEntries;
 
 -(SatManager *)satManager {
     if (!_satManager) {
@@ -39,7 +39,10 @@
     NSString *password = @"1234";
     
     p_sat_request = [self.satManager getSatRequest:username :password :p_license];
-    [self.satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p" :p_sat_request];
+    int ret = [self.satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p" :p_sat_request];
+    
+    self.myDeviceEntries = self.satManager.myDeviceEntries;
+    ret != 0 ? satLoginBool = NO : satLoginBool = YES;
     
 }
 @end
