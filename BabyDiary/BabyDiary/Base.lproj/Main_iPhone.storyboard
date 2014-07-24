@@ -32,6 +32,9 @@
                                 <state key="disabled" backgroundImage="btn_g_disabled"/>
                                 <state key="selected" backgroundImage="btn_g_pressed"/>
                                 <state key="highlighted" backgroundImage="btn_g_pressed"/>
+                                <connections>
+                                    <action selector="satLoginButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="if2-6X-arY"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" minimumFontSize="17" background="textfield_login_btm" disabledBackground="ic_login_password" translatesAutoresizingMaskIntoConstraints="NO" id="AMO-di-7bI">
                                 <rect key="frame" x="15" y="110" width="290" height="45"/>
@@ -150,6 +153,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb2-eD-PUN">
+                                <rect key="frame" x="139" y="426" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="nHo-lN-iff"/>
+                                    <constraint firstAttribute="height" constant="21" id="tla-T5-4Mr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87450980392156863" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -173,10 +186,12 @@
                             <constraint firstItem="sCn-eu-pDt" firstAttribute="centerX" secondItem="UE8-Q5-2ua" secondAttribute="centerX" id="Vcy-nO-qXb"/>
                             <constraint firstItem="TJC-9O-0qf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ViR-zr-ZUy"/>
                             <constraint firstItem="2D8-kG-Anz" firstAttribute="leading" secondItem="AMO-di-7bI" secondAttribute="leading" id="WUw-Vi-XcH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vb2-eD-PUN" secondAttribute="bottom" constant="13" id="eVn-nc-ez6"/>
                             <constraint firstItem="WDF-5c-CZL" firstAttribute="top" secondItem="sCn-eu-pDt" secondAttribute="bottom" constant="20" id="h8v-DU-EqF"/>
                             <constraint firstItem="2D8-kG-Anz" firstAttribute="leading" secondItem="K5m-MV-IMu" secondAttribute="leading" id="hBD-mo-gbj"/>
                             <constraint firstItem="UE8-Q5-2ua" firstAttribute="centerX" secondItem="K5m-MV-IMu" secondAttribute="centerX" id="j2q-Jx-uBV"/>
                             <constraint firstItem="oQN-lJ-vKj" firstAttribute="baseline" secondItem="tbJ-cB-1Kb" secondAttribute="baseline" id="mRH-2Y-kgr"/>
+                            <constraint firstItem="vb2-eD-PUN" firstAttribute="centerX" secondItem="WDF-5c-CZL" secondAttribute="centerX" id="n4u-m1-c9I"/>
                             <constraint firstItem="AMO-di-7bI" firstAttribute="top" secondItem="2D8-kG-Anz" secondAttribute="bottom" id="nwq-lR-UK5"/>
                             <constraint firstAttribute="trailing" secondItem="oQN-lJ-vKj" secondAttribute="trailing" constant="63" id="nxa-R5-7tz"/>
                             <constraint firstItem="UE8-Q5-2ua" firstAttribute="leading" secondItem="vgq-xh-W4k" secondAttribute="trailing" constant="8" symbolic="YES" id="qpJ-0d-IWR"/>
@@ -189,6 +204,7 @@
                         <outlet property="forgetPassworkButton" destination="vgq-xh-W4k" id="Khe-VA-Ker"/>
                         <outlet property="googleLoginButton" destination="WDF-5c-CZL" id="kvE-Mm-yU4"/>
                         <outlet property="loginButton" destination="K5m-MV-IMu" id="eem-Z8-OUc"/>
+                        <outlet property="loginManage" destination="vb2-eD-PUN" id="xPh-Ix-Cv2"/>
                         <outlet property="passwordField" destination="AMO-di-7bI" id="kQ6-b9-yxp"/>
                         <outlet property="usernameField" destination="2D8-kG-Anz" id="uRZ-lQ-h9J"/>
                     </connections>

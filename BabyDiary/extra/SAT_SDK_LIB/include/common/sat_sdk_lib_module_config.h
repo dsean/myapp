@@ -1,0 +1,5 @@
+#define HAVE_BACKTRACE 1
+#define HAVE_EPOLL 1
+#define HAVE_POLARSSL 1
+#define HAVE_DEBUG_MSG 1
+/* #undef HAVE_DEBUG_MUTEX */
