@@ -37,7 +37,7 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = NO;
     NSMutableString *str = [[NSMutableString alloc] init];
-    NSMutableDictionary *content = self.satManager.myDeviceEntries;
+    NSMutableDictionary *content = self.satManager.userDeviceEntries;
     for (NSMutableDictionary *key in content) {
         [str appendFormat: [NSString stringWithFormat:@"%@:%@\n", key, [content objectForKey:key]]];
     }

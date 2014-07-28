@@ -9,7 +9,7 @@
 #import "SatManager.h"
 
 @implementation SatManager
-@synthesize satPassword, satUsername, myDeviceEntries;
+@synthesize userDeviceEntries;
 
 static SatManager *_satManager;
 
@@ -23,34 +23,13 @@ static SatManager *_satManager;
     }
     return _satManager;
 }
-/*
- 
-+ (SatManager *)shardSatManager {
-    @synchronized([SatManager class]) {
-        if (!_satManager) {
-            _satManager = [[self alloc] init];
-        }
-        return _satManager;
-    }
-    return nil;
-}
 
-+ (id)alloc {
-    @synchronized([SatManager class]) {
-        _satManager = [super alloc];
-        
-        return _satManager;
-    }
-    return nil;
-}
 
-*/
-
--(NSMutableDictionary *)myDeviceEntries {
-    if (!myDeviceEntries) {
-        myDeviceEntries = [[NSMutableDictionary alloc] init];
+-(NSMutableDictionary *)userDeviceEntries {
+    if (!userDeviceEntries) {
+        userDeviceEntries = [[NSMutableDictionary alloc] init];
     }
-    return myDeviceEntries;
+    return userDeviceEntries;
 }
 
 - (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType :(IP2PSATRequest *)p_sat_request {
@@ -64,9 +43,9 @@ static SatManager *_satManager;
             
         return -1;
     }
-    int ret=-1;
-    int getDeviceEntryListRetry=0;
-    while(getDeviceEntryListRetry<2 && ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
+    int ret = -1;
+    int getDeviceEntryListRetry = 0;
+    while(getDeviceEntryListRetry < 2 && ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
             ret = p_sat_request->GetDeviceEntryList(&deviceEntries, [serviceType UTF8String], [deviceType UTF8String]);
             getDeviceEntryListRetry++;
     }
@@ -75,11 +54,10 @@ static SatManager *_satManager;
     
     if (ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
             
-        satUsername = @"";
-        satPassword = @"";
+
         return ret;
     }
-    myDeviceEntries = [SatDevice parseMyDevices:deviceEntries];
+    userDeviceEntries = [SatDevice parseMyDevices:deviceEntries];
     
     return 0;
 }

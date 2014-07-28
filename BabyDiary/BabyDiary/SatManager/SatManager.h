@@ -22,9 +22,8 @@
     NSString *lastDeviceType;
 }
 
-@property (nonatomic, copy) NSString *satUsername;
-@property (nonatomic, copy) NSString *satPassword;
-@property (nonatomic, copy) NSMutableDictionary *myDeviceEntries;
+
+@property (strong, nonatomic) NSMutableDictionary *userDeviceEntries;
 
 
 #ifdef __cplusplus

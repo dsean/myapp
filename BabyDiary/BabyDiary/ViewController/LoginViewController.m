@@ -7,12 +7,13 @@
 //
 
 #import "LoginViewController.h"
-#import "SatLogin.h"
+
+#import "SatLoginHandler.h"
 #import "ContentViewController.h"
 #import "SatManager.h"
 @interface LoginViewController ()
 
-@property(strong, nonatomic) SatLogin *satLogin;
+@property(strong, nonatomic) SatLoginHandler *satLogin;
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -30,9 +31,9 @@
 
 @implementation LoginViewController
 
-- (SatLogin *)satLogin {
+- (SatLoginHandler *)satLogin {
     if (!_satLogin) {
-        _satLogin = [[SatLogin alloc] init];
+        _satLogin = [[SatLoginHandler alloc] init];
     }
     return _satLogin;
 }
@@ -102,7 +103,7 @@
     self.loginManage.text = @"Log in...";
     if ([self.satLogin checkLoginContent:satUsername :satPassword]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self.satLogin prepard];
+            [self.satLogin prepardForSatLogin];
             [self.satLogin satLogin:satUsername :satPassword];
             
             dispatch_async(dispatch_get_main_queue(), ^{

@@ -1,16 +1,17 @@
 //
-//  SatLogin.m
+//  SatLoginHandler.m
 //  BabyDiary
 //
-//  Created by 楊 德忻 on 2014/7/24.
+//  Created by 楊 德忻 on 2014/7/28.
 //  Copyright (c) 2014年 德忻 楊. All rights reserved.
 //
 
-#import "SatLogin.h"
-@interface SatLogin ()
+
+#import "SatLoginHandler.h"
+@interface SatLoginHandler ()
 @property (strong, nonatomic) SatManager *satManager;
 @end
-@implementation SatLogin
+@implementation SatLoginHandler
 @synthesize satServer, satServerPort, signalServer, signalServerPorts, satLoginBool;
 
 - (SatManager *)satManager {
@@ -20,7 +21,7 @@
     return _satManager;
 }
 
-- (void)prepard {
+- (void)prepardForSatLogin {
     
     // Load license.
     
@@ -66,4 +67,5 @@
     }
     return YES;
 }
+
 @end

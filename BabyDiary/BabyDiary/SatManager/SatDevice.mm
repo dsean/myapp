@@ -16,7 +16,7 @@
 @synthesize macAddress;
 
 + (NSMutableDictionary *)parseMyDevices:(const std::vector<DeviceEntry *> *)deviceEntries {
-    NSMutableDictionary *myDevicesMap = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *userDevicesMap = [[NSMutableDictionary alloc] init];
     
     if (deviceEntries == NULL) {
         return nil;
@@ -28,16 +28,16 @@
         NSString *deviceEntryUid = [NSString stringWithCString:deviceEntry->uid.c_str() encoding:[NSString defaultCStringEncoding]];
         
         // If the uid does not exist, allocate a new SatDevice.
-        SatDevice *satDevice = [myDevicesMap objectForKey:deviceEntryUid];
+        SatDevice *satDevice = [userDevicesMap objectForKey:deviceEntryUid];
         if (satDevice == nil) {
             satDevice = [[SatDevice alloc] init];
             satDevice.macAddress = [NSString stringWithCString:deviceEntry->mac_address.c_str() encoding:[NSString defaultCStringEncoding]];
             // Collect SatDevice.
-            [myDevicesMap setObject:satDevice forKey:deviceEntryUid];
+            [userDevicesMap setObject:satDevice forKey:deviceEntryUid];
         }
         
     }
     
-    return myDevicesMap;
+    return userDevicesMap;
 }
 @end
