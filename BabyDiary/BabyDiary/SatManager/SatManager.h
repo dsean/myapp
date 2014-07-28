@@ -27,11 +27,11 @@
 @property (nonatomic, copy) NSMutableDictionary *myDeviceEntries;
 
 
-
 #ifdef __cplusplus
 - (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType :(IP2PSATRequest *)p_sat_request;
 - (IP2PLicense *)getLisense:(NSString *)licenseName;
 - (IP2PSATRequest *)getSatRequest:(NSString *)username :(NSString *)password :(IP2PLicense *)p_license;
 
 #endif
+
 @end

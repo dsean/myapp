@@ -11,17 +11,19 @@
 @property (strong, nonatomic) SatManager *satManager;
 @end
 @implementation SatLogin
-@synthesize satServer, satServerPort, signalServer, signalServerPorts, satLoginBool, myDeviceEntries;
+@synthesize satServer, satServerPort, signalServer, signalServerPorts, satLoginBool;
 
--(SatManager *)satManager {
+- (SatManager *)satManager {
     if (!_satManager) {
         _satManager = [[SatManager alloc] init];
     }
     return _satManager;
 }
+
 - (void)prepard {
     
     // Load license.
+    
     p_license = [self.satManager getLisense:@"license"];
     
     // Load license params.
@@ -34,15 +36,34 @@
     signalServerPorts = [[NSArray alloc] initWithObjects:@(signal_server_ports[0]), @(signal_server_ports[1]), @(signal_server_ports[2]), nil];
 }
 
-- (void)satLogin {
-    NSString *username = @"qatest1";
-    NSString *password = @"1234";
+- (void)satLogin:(NSString *)satUsername :(NSString *)satPassword {
+    NSString *username = satUsername;
+    NSString *password = satPassword;
     
-    p_sat_request = [self.satManager getSatRequest:username :password :p_license];
-    int ret = [self.satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p" :p_sat_request];
+    p_sat_request = [_satManager getSatRequest:username :password :p_license];
+    int ret = [_satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p" :p_sat_request];
     
-    self.myDeviceEntries = self.satManager.myDeviceEntries;
     ret != 0 ? satLoginBool = NO : satLoginBool = YES;
     
+}
+
+- (BOOL)checkLoginContent:(NSString*)username :(NSString*)password {
+    // format: allow "a~z, A~Z, 0~9, - and _"
+    NSString *strToCheckUsername = username;
+    NSString *strToCheckPassword = password;
+    if ([strToCheckUsername length] < 4 || [strToCheckUsername length] > 32 || [strToCheckPassword length] < 4 || [strToCheckPassword length] > 32) {
+        return NO;
+    }
+    NSError *error = NULL;
+    NSString *regexString = @"^[a-z0-9_-]+$";
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:&error];
+    NSInteger numberOfMatchesUseername = [regex numberOfMatchesInString:strToCheckUsername options:0 range:NSMakeRange(0, [strToCheckUsername length])];
+    NSInteger numberOfMatchesPassword = [regex numberOfMatchesInString:strToCheckPassword options:0 range:NSMakeRange(0, [strToCheckPassword length])];
+    
+    if (numberOfMatchesUseername == 0 || numberOfMatchesPassword == 0) {
+        return NO;
+    }
+    return YES;
 }
 @end

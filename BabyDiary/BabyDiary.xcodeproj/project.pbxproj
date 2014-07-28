@@ -21,7 +21,7 @@
 		144B0C81196BFD7E00166644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 144B0C7F196BFD7E00166644 /* InfoPlist.strings */; };
 		144B0C83196BFD7E00166644 /* BabyDiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 144B0C82196BFD7E00166644 /* BabyDiaryTests.m */; };
 		144B0C8C196C006B00166644 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144B0C6F196BFD7E00166644 /* Images.xcassets */; };
-		147D6A73196E859700870C5D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147D6A72196E859700870C5D /* LoginViewController.m */; };
+		1491F8811985E25E0040CCFE /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1491F8801985E25E0040CCFE /* NavigationViewController.m */; };
 		14B9FEB019809D0200EB0C75 /* m_auto.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 14B9FE2319809D0200EB0C75 /* m_auto.h.in */; };
 		14B9FEB119809D0200EB0C75 /* os_auto.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 14B9FE2B19809D0200EB0C75 /* os_auto.h.in */; };
 		14B9FEB219809D0200EB0C75 /* libgoogle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B9FEA619809D0200EB0C75 /* libgoogle.a */; };
@@ -38,6 +38,8 @@
 		14B9FEC119809E6400EB0C75 /* license in Resources */ = {isa = PBXBuildFile; fileRef = 14B9FEC019809E6400EB0C75 /* license */; };
 		14B9FEC41980ABCF00EB0C75 /* SatLogin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9FEC31980ABCF00EB0C75 /* SatLogin.mm */; };
 		14B9FECA198111AC00EB0C75 /* SatDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14B9FEC9198111AC00EB0C75 /* SatDevice.mm */; };
+		14B9FECD19811C6D00EB0C75 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B9FECC19811C6D00EB0C75 /* ContentViewController.m */; };
+		14B9FED119811D4100EB0C75 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B9FED019811D4100EB0C75 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +71,8 @@
 		144B0C7E196BFD7E00166644 /* BabyDiaryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BabyDiaryTests-Info.plist"; sourceTree = "<group>"; };
 		144B0C80196BFD7E00166644 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		144B0C82196BFD7E00166644 /* BabyDiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyDiaryTests.m; sourceTree = "<group>"; };
-		147D6A71196E859700870C5D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		147D6A72196E859700870C5D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1491F87F1985E25E0040CCFE /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		1491F8801985E25E0040CCFE /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		14B9FE0319809D0200EB0C75 /* DeviceEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceEntry.h; sourceTree = "<group>"; };
 		14B9FE0419809D0200EB0C75 /* DeviceEntryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceEntryRequest.h; sourceTree = "<group>"; };
 		14B9FE0519809D0200EB0C75 /* GoogleDocListBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleDocListBase.h; sourceTree = "<group>"; };
@@ -244,6 +246,10 @@
 		14B9FEC31980ABCF00EB0C75 /* SatLogin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SatLogin.mm; sourceTree = "<group>"; };
 		14B9FEC8198111AC00EB0C75 /* SatDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SatDevice.h; path = SatManager/SatDevice.h; sourceTree = "<group>"; };
 		14B9FEC9198111AC00EB0C75 /* SatDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SatDevice.mm; path = SatManager/SatDevice.mm; sourceTree = "<group>"; };
+		14B9FECB19811C6D00EB0C75 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentViewController.h; path = ViewController/ContentViewController.h; sourceTree = "<group>"; };
+		14B9FECC19811C6D00EB0C75 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContentViewController.m; path = ViewController/ContentViewController.m; sourceTree = "<group>"; };
+		14B9FECF19811D4100EB0C75 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewController/LoginViewController.h; sourceTree = "<group>"; };
+		14B9FED019811D4100EB0C75 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ViewController/LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,8 +327,7 @@
 				144B0C64196BFD7E00166644 /* AppDelegate.m */,
 				144B0C66196BFD7E00166644 /* Main_iPhone.storyboard */,
 				144B0C69196BFD7E00166644 /* Main_iPad.storyboard */,
-				147D6A71196E859700870C5D /* LoginViewController.h */,
-				147D6A72196E859700870C5D /* LoginViewController.m */,
+				14B9FECE19811C7600EB0C75 /* ViewController */,
 				144B0C6F196BFD7E00166644 /* Images.xcassets */,
 				144B0C5B196BFD7E00166644 /* Supporting Files */,
 			);
@@ -624,6 +629,19 @@
 			name = SatManager;
 			sourceTree = "<group>";
 		};
+		14B9FECE19811C7600EB0C75 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14B9FECB19811C6D00EB0C75 /* ContentViewController.h */,
+				14B9FECC19811C6D00EB0C75 /* ContentViewController.m */,
+				14B9FECF19811D4100EB0C75 /* LoginViewController.h */,
+				14B9FED019811D4100EB0C75 /* LoginViewController.m */,
+				1491F87F1985E25E0040CCFE /* NavigationViewController.h */,
+				1491F8801985E25E0040CCFE /* NavigationViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -728,9 +746,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B9FED119811D4100EB0C75 /* LoginViewController.m in Sources */,
 				14B9FECA198111AC00EB0C75 /* SatDevice.mm in Sources */,
-				147D6A73196E859700870C5D /* LoginViewController.m in Sources */,
+				14B9FECD19811C6D00EB0C75 /* ContentViewController.m in Sources */,
 				144B0C65196BFD7E00166644 /* AppDelegate.m in Sources */,
+				1491F8811985E25E0040CCFE /* NavigationViewController.m in Sources */,
 				14B9FEC41980ABCF00EB0C75 /* SatLogin.mm in Sources */,
 				14B9FEBF19809E3900EB0C75 /* SatManager.mm in Sources */,
 				144B0C61196BFD7E00166644 /* main.m in Sources */,

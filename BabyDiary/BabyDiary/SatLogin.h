@@ -24,14 +24,17 @@
     int signal_server_ports_count;
     
 #endif
+    
 }
+
 
 @property (nonatomic, copy, readonly) NSString *satServer;
 @property (nonatomic, assign, readonly) NSInteger satServerPort;
 @property (nonatomic, copy, readonly) NSString *signalServer;
 @property (nonatomic, retain, readonly) NSArray *signalServerPorts;
 @property (nonatomic) BOOL satLoginBool;
-@property (strong, nonatomic) NSMutableDictionary *myDeviceEntries;
+
 - (void)prepard;
-- (void)satLogin;
+- (void)satLogin:(NSString *)satUsername :(NSString *)satPassword;
+- (BOOL)checkLoginContent:(NSString*)username :(NSString*)password;
 @end

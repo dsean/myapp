@@ -11,6 +11,41 @@
 @implementation SatManager
 @synthesize satPassword, satUsername, myDeviceEntries;
 
+static SatManager *_satManager;
+
+-(id)init {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    if (!_satManager) {
+        _satManager = [SatManager alloc];
+    }
+    return _satManager;
+}
+/*
+ 
++ (SatManager *)shardSatManager {
+    @synchronized([SatManager class]) {
+        if (!_satManager) {
+            _satManager = [[self alloc] init];
+        }
+        return _satManager;
+    }
+    return nil;
+}
+
++ (id)alloc {
+    @synchronized([SatManager class]) {
+        _satManager = [super alloc];
+        
+        return _satManager;
+    }
+    return nil;
+}
+
+*/
+
 -(NSMutableDictionary *)myDeviceEntries {
     if (!myDeviceEntries) {
         myDeviceEntries = [[NSMutableDictionary alloc] init];
