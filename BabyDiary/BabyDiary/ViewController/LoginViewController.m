@@ -18,14 +18,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 
-
-
 @property (weak, nonatomic) IBOutlet UIButton *forgetPassworkButton;
 @property (weak, nonatomic) IBOutlet UIButton *cerateAccountButton;
 @property (weak, nonatomic) IBOutlet UIButton *googleLoginButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
-@property (weak, nonatomic) IBOutlet UILabel *loginManage;
+@property (weak, nonatomic) IBOutlet UILabel *loginManageLabel;
 
 @end
 
@@ -85,7 +83,7 @@
     self.usernameField.leftViewMode = UITextFieldViewModeAlways;
     self.usernameField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.loginButton.enabled =YES;
-    self.loginManage.text = @"";
+    self.loginManageLabel.text = @"";
 }
 
 #pragma mark-OriginalAction
@@ -95,15 +93,15 @@
     [self.passwordField resignFirstResponder];
     [self.usernameField resignFirstResponder];
     
-    
     NSString *satUsername = self.usernameField.text;
     NSString *satPassword = self.passwordField.text;
     
-    self.loginManage.textColor = [UIColor blackColor];
-    self.loginManage.text = @"Log in...";
+    self.loginManageLabel.textColor = [UIColor blackColor];
+    self.loginManageLabel.text = @"Log in...";
     if ([self.satLogin checkLoginContent:satUsername :satPassword]) {
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self.satLogin prepardForSatLogin];
+            [self.satLogin prepareForSatLogin];
             [self.satLogin satLogin:satUsername :satPassword];
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -123,8 +121,8 @@
 
 - (void)loginFaild {
     self.loginButton.enabled =YES;
-    self.loginManage.textColor = [UIColor redColor];
-    self.loginManage.text = @"username or password faild";
+    self.loginManageLabel.textColor = [UIColor redColor];
+    self.loginManageLabel.text = @"username or password faild";
 }
 
 - (void)loginSuccess {

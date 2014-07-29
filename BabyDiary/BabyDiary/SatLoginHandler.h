@@ -34,7 +34,7 @@
 @property (strong, nonatomic) NSArray *signalServerPorts;
 @property (nonatomic) BOOL satLoginBool;
 
-- (void)prepardForSatLogin;
+- (void)prepareForSatLogin;
 - (void)satLogin:(NSString *)satUsername :(NSString *)satPassword;
 - (BOOL)checkLoginContent:(NSString*)username :(NSString*)password;
 @end

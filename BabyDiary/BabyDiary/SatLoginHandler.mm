@@ -21,7 +21,7 @@
     return _satManager;
 }
 
-- (void)prepardForSatLogin {
+- (void)prepareForSatLogin {
     
     // Load license.
     
