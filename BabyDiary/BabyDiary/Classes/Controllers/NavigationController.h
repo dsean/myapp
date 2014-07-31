@@ -1,5 +1,5 @@
 //
-//  NavigationViewController.h
+//  NavigationController.h
 //  BabyDiary
 //
 //  Created by 楊 德忻 on 2014/7/28.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NavigationViewController : UINavigationController
+@interface NavigationController : UINavigationController
 
 @end
