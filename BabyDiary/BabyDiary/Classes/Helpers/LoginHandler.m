@@ -1,5 +1,5 @@
 //
-//  SatLoginHandler.m
+//  LoginHandler.m
 //  BabyDiary
 //
 //  Created by 楊 德忻 on 2014/7/28.
@@ -8,46 +8,51 @@
 
 
 #import "LoginHandler.h"
-@interface LoginHandler ()
-@property (strong, nonatomic) SatManager *satManager;
-@end
+
 @implementation LoginHandler
-@synthesize satLoginCheck;
 
-- (SatManager *)satManager {
-    if (!_satManager) {
-        _satManager = [[SatManager alloc] init];
-    }
-    return _satManager;
-}
-
-- (void)satLogin:(NSString *)satUsername :(NSString *)satPassword {
-    
-    [self.satManager getSatRequest:satUsername :satPassword];
-    
-    int ret = [_satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p"];
-
-    satLoginCheck = ret != 0 ? NO : YES;
-}
-
-- (BOOL)checkLoginContent:(NSString*)username :(NSString*)password {
++ (BOOL)validateUsername:(NSString *)username {
     // format: allow "a~z, A~Z, 0~9, - and _"
-    NSString *strToCheckUsername = username;
-    NSString *strToCheckPassword = password;
-    if ([strToCheckUsername length] < 4 || [strToCheckUsername length] > 32 || [strToCheckPassword length] < 4 || [strToCheckPassword length] > 32) {
+    if ([username length] < 4 || [username length] > 32) {
         return NO;
     }
     NSError *error = NULL;
     NSString *regexString = @"^[a-z0-9_-]+$";
     
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:&error];
-    NSInteger numberOfMatchesUseername = [regex numberOfMatchesInString:strToCheckUsername options:0 range:NSMakeRange(0, [strToCheckUsername length])];
-    NSInteger numberOfMatchesPassword = [regex numberOfMatchesInString:strToCheckPassword options:0 range:NSMakeRange(0, [strToCheckPassword length])];
-    
-    if (numberOfMatchesUseername == 0 || numberOfMatchesPassword == 0) {
+    NSInteger numberOfMatches = [regex numberOfMatchesInString:username options:0 range:NSMakeRange(0, [username length])];
+    if (numberOfMatches == 0) {
         return NO;
     }
     return YES;
+}
+
++ (BOOL)validatePassword:(NSString *)password {
+    // format: allow "a~z, A~Z, 0~9, - and _"
+    if ([password length] < 4 || [password length] > 32) {
+        return NO;
+    }
+    NSError *error = NULL;
+    NSString *regexString = @"^[a-z0-9_-]+$";
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexString options:NSRegularExpressionCaseInsensitive error:&error];
+    NSInteger numberOfMatches = [regex numberOfMatchesInString:password options:0 range:NSMakeRange(0, [password length])];
+    if (numberOfMatches == 0) {
+        return NO;
+    }
+    return YES;
+}
+
++ (BOOL)satLogin:(NSString *)satUsername :(NSString *)satPassword {
+    if ([LoginHandler validateUsername:satUsername] == NO ||
+        [LoginHandler validatePassword:satPassword] == NO) {
+        return NO;
+    }
+
+    SatManager *satManager = [SatManager sharedSatManager];
+    [satManager startSatService:satUsername :satPassword];
+    BOOL success = [satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p"];
+    return success;
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  SatLoginHandler.h
+//  LoginHandler.h
 //  BabyDiary
 //
 //  Created by 楊 德忻 on 2014/7/28.
@@ -9,12 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "SatManager.h"
 
-@interface LoginHandler : NSObject 
+@interface LoginHandler : NSObject
 
-
-@property (nonatomic) BOOL satLoginCheck;
-
-- (void)satLogin:(NSString *)satUsername :(NSString *)satPassword;
-- (BOOL)checkLoginContent:(NSString*)username :(NSString*)password;
++ (BOOL)validateUsername:(NSString *)username;
++ (BOOL)validatePassword:(NSString *)password;
++ (BOOL)satLogin:(NSString *)satUsername :(NSString *)satPassword;
 
 @end
