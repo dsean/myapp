@@ -8,12 +8,13 @@
 
 #import "LoginViewController.h"
 
-#import "LoginHandler.h"
 #import "ContentViewController.h"
+#import "LoginHandler.h"
 #import "SatManager.h"
+
 @interface LoginViewController ()
 
-@property (strong, nonatomic) LoginHandler *satLogin;
+@property (strong, nonatomic) LoginHandler *loginHandler;
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -29,19 +30,17 @@
 
 @implementation LoginViewController
 
-- (LoginHandler *)satLogin {
-    if (!_satLogin) {
-        _satLogin = [[LoginHandler alloc] init];
+- (LoginHandler *)loginHandler {
+    if (!_loginHandler) {
+        _loginHandler = [[LoginHandler alloc] init];
     }
-    return _satLogin;
+    return _loginHandler;
 }
 
 #pragma mark-lifCycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
 }
 
 - (void)viewDidLayoutSubviews {
@@ -49,19 +48,13 @@
     [self initUI];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:YES];
-    self.loginButton.enabled =YES;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    // Reset UI
+    self.loginButton.enabled = YES;
     self.loginManageLabel.text = @"";
-    
 }
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.passwordField resignFirstResponder];
-    [self.usernameField resignFirstResponder];
-    
-}
-
 
 #pragma mark-initUI
 
@@ -69,36 +62,40 @@
     return NO;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.passwordField resignFirstResponder];
+    [self.usernameField resignFirstResponder];
+}
+
 - (IBAction)nameTextField_DidEndOnExit:(id)sender {
-    // foucus on next feild
+    // Foucus on next field
     [self.passwordField becomeFirstResponder];
 }
 
 - (IBAction)passTextField_DidEndOnExit:(id)sender {
-    // hide
+    // Hide keyboard
     [sender resignFirstResponder];
-    // to login
+
+    // Trigger login after enter return key
     [self.loginButton sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
-
 -(void)initUI {
-    UIImageView *image=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_login_password"]];
-    self.passwordField.leftView=image;
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_login_password"]];
+    self.passwordField.leftView = image;
     self.passwordField.leftViewMode = UITextFieldViewModeAlways;
     self.passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-    UIImageView *image2=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_login_uername"]];
-    self.usernameField.leftView=image2;
+
+    UIImageView *image2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_login_uername"]];
+    self.usernameField.leftView = image2;
     self.usernameField.leftViewMode = UITextFieldViewModeAlways;
     self.usernameField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
 }
 
 #pragma mark-OriginalAction
 
-- (IBAction)satLoginButton:(UIButton *)sender {
-    self.loginButton.enabled =NO;
+- (IBAction)onTouchLoginButton:(UIButton *)sender {
+    self.loginButton.enabled = NO;
     [self.passwordField resignFirstResponder];
     [self.usernameField resignFirstResponder];
     
@@ -107,13 +104,13 @@
     
     self.loginManageLabel.textColor = [UIColor blackColor];
     self.loginManageLabel.text = @"Log in...";
-    if ([self.satLogin checkLoginContent:satUsername :satPassword]) {
+    if ([self.loginHandler checkLoginContent:satUsername :satPassword]) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self.satLogin satLogin:satUsername :satPassword];
+            [self.loginHandler satLogin:satUsername :satPassword];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.satLogin.satLoginCheck) {
+                if (self.loginHandler.satLoginCheck) {
                     [self loginSuccess];
                 }
                 else {
@@ -128,7 +125,7 @@
 }
 
 - (void)loginFaild {
-    self.loginButton.enabled =YES;
+    self.loginButton.enabled = YES;
     self.loginManageLabel.textColor = [UIColor redColor];
     self.loginManageLabel.text = @"username or password faild";
 }
@@ -138,4 +135,3 @@
 
 }
 @end
-

@@ -33,7 +33,7 @@
                                 <state key="selected" backgroundImage="btn_g_pressed"/>
                                 <state key="highlighted" backgroundImage="btn_g_pressed"/>
                                 <connections>
-                                    <action selector="satLoginButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="if2-6X-arY"/>
+                                    <action selector="onTouchLoginButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R3F-bL-iMR"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" placeholder="PASSWORD" minimumFontSize="17" background="textfield_login_btm" disabledBackground="ic_login_password" translatesAutoresizingMaskIntoConstraints="NO" id="AMO-di-7bI">
