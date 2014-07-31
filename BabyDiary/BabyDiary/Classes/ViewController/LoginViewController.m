@@ -44,10 +44,16 @@
     
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self initUI];
+}
+
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
-    self.navigationController.navigationBarHidden = YES;
-    [self initUI];
+    self.loginButton.enabled =YES;
+    self.loginManageLabel.text = @"";
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -58,6 +64,10 @@
 
 
 #pragma mark-initUI
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
 
 - (IBAction)nameTextField_DidEndOnExit:(id)sender {
     // foucus on next feild
@@ -82,8 +92,7 @@
     self.usernameField.leftView=image2;
     self.usernameField.leftViewMode = UITextFieldViewModeAlways;
     self.usernameField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.loginButton.enabled =YES;
-    self.loginManageLabel.text = @"";
+    
 }
 
 #pragma mark-OriginalAction
@@ -125,8 +134,8 @@
 }
 
 - (void)loginSuccess {
-    ContentViewController *controller=(ContentViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"content"];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self performSegueWithIdentifier:@"loginSegue" sender:self];
+
 }
 @end
 

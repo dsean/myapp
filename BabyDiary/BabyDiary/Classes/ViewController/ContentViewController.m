@@ -46,8 +46,7 @@
     self.navigationItem.leftBarButtonItem = leftButtonItem;
 }
 - (void)OnLeftButton {
-    self.navigationController.navigationBarHidden = YES;
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
