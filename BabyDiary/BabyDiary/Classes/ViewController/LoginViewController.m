@@ -101,11 +101,10 @@
     if ([self.satLogin checkLoginContent:satUsername :satPassword]) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self.satLogin prepareForSatLogin];
             [self.satLogin satLogin:satUsername :satPassword];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.satLogin.satLoginBool) {
+                if (self.satLogin.satLoginCheck) {
                     [self loginSuccess];
                 }
                 else {

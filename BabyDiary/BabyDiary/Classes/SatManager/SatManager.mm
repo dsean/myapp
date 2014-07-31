@@ -9,7 +9,7 @@
 #import "SatManager.h"
 
 @implementation SatManager
-@synthesize userDeviceEntries;
+@synthesize userDeviceEntries, satServer, satServerPort, signalServer, signalServerPorts, satLoginBool;
 
 static SatManager *_satManager;
 
@@ -32,7 +32,11 @@ static SatManager *_satManager;
     return userDeviceEntries;
 }
 
-- (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType :(IP2PSATRequest *)p_sat_request {
+- (void)getSatRequest:(NSString *)username :(NSString *)password {
+    p_sat_request = P2PFactory::CreateSATRequest([username UTF8String], [password UTF8String], p_license);
+}
+
+- (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType {
     lastServiceType = serviceType;
     lastDeviceType = deviceType;
     
@@ -62,15 +66,20 @@ static SatManager *_satManager;
     return 0;
 }
 
-
-
-- (IP2PLicense *)getLisense:(NSString *)licenseName {
+- (void)getLicenseForSatLogin: (NSString *)licenseName {
+    // Load license.
     NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:licenseName];
     
-    return P2PFactory::CreateLicense([licensePath UTF8String]);
+    p_license = P2PFactory::CreateLicense([licensePath UTF8String]);
+    
+    // Load license params.
+    p_license->GetSATServer(sat_server, &sat_server_port);
+    signal_server_ports_count = 3;   // !!!: Get signal server multi-ports x 3.
+    p_license->GetSignalServer(signal_server, signal_server_ports, signal_server_ports_count);
+    satServer = [NSString stringWithFormat:@"%s", sat_server];
+    satServerPort = sat_server_port;
+    signalServer = [NSString stringWithFormat:@"%s", signal_server];
+    signalServerPorts = [[NSArray alloc] initWithObjects:@(signal_server_ports[0]), @(signal_server_ports[1]), @(signal_server_ports[2]), nil];
 }
 
-- (IP2PSATRequest *)getSatRequest:(NSString *)username :(NSString *)password :(IP2PLicense *)p_license {
-    return P2PFactory::CreateSATRequest([username UTF8String], [password UTF8String], p_license);
-}
 @end
