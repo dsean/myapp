@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SatManager.h"
+
 @interface ContentViewController : UIViewController
 
 @end

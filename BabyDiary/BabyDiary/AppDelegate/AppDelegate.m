@@ -7,34 +7,15 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginHandler.h"
 #import "SatManager.h"
-
-@interface AppDelegate ()
-@property(strong, nonatomic) LoginHandler *satLogin;
-@property(strong, nonatomic) SatManager *satManager;
-@end
 
 @implementation AppDelegate
 
-- (SatManager *)satManager {
-    if (!_satManager) {
-        _satManager = [[SatManager alloc] init];
-    }
-    return _satManager;
-}
-
-- (LoginHandler *)satLogin {
-    if (!_satLogin) {
-        _satLogin = [[LoginHandler alloc] init];
-    }
-    return _satLogin;
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    [self.satManager getLicenseForSatLogin: @"license"];
+
+    NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"license"];
+    [SatManager setLicensePath:licensePath];
     return YES;
 }
 							

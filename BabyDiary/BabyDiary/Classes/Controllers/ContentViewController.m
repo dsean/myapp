@@ -7,62 +7,45 @@
 //
 
 #import "ContentViewController.h"
+#import "SatManager.h"
+#import "SatDevice.h"
 
 @interface ContentViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextView *textFied;
-@property (strong, nonatomic) SatManager *satManager;
+
 @end
 
 @implementation ContentViewController
 
-- (SatManager *)satManager {
-    if (!_satManager) {
-        _satManager = [[SatManager alloc] init];
-    }
-    return _satManager;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     self.navigationController.navigationBarHidden = NO;
-    NSMutableString *str = [[NSMutableString alloc] init];
-    NSMutableDictionary *content = self.satManager.userDeviceEntries;
-    for (NSMutableDictionary *key in content) {
-        [str appendFormat: [NSString stringWithFormat:@"%@:%@\n", key, [content objectForKey:key]]];
-    }
-    self.textFied.text = str;
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(OnLeftButton)];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(onTouchLeftButton)];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
+
+    NSMutableString *content = [[NSMutableString alloc] init];
+    SatManager *satManager = [SatManager sharedSatManager];
+    NSMutableDictionary *uidToSatDevices = satManager.uidToSatDevices;
+    for (NSString *uid in uidToSatDevices) {
+        SatDevice *satDevice = [uidToSatDevices objectForKey:uid];
+
+        NSString *line = [NSString stringWithFormat:@"%@:%@\n", uid, satDevice.macAddress];
+        [content appendString: line];
+    }
+    self.textFied.text = content;
 }
-- (void)OnLeftButton {
+
+- (void)onTouchLeftButton {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-}
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

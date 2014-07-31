@@ -14,8 +14,6 @@
 
 @interface LoginViewController ()
 
-@property (strong, nonatomic) LoginHandler *loginHandler;
-
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 
@@ -29,13 +27,6 @@
 @end
 
 @implementation LoginViewController
-
-- (LoginHandler *)loginHandler {
-    if (!_loginHandler) {
-        _loginHandler = [[LoginHandler alloc] init];
-    }
-    return _loginHandler;
-}
 
 #pragma mark-lifCycle
 
@@ -98,30 +89,26 @@
     self.loginButton.enabled = NO;
     [self.passwordField resignFirstResponder];
     [self.usernameField resignFirstResponder];
-    
-    NSString *satUsername = self.usernameField.text;
-    NSString *satPassword = self.passwordField.text;
-    
+
     self.loginManageLabel.textColor = [UIColor blackColor];
     self.loginManageLabel.text = @"Log in...";
-    if ([self.loginHandler checkLoginContent:satUsername :satPassword]) {
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self.loginHandler satLogin:satUsername :satPassword];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.loginHandler.satLoginCheck) {
-                    [self loginSuccess];
-                }
-                else {
-                    [self loginFaild];
-                }
-            });
+
+    NSString *satUsername = self.usernameField.text;
+    NSString *satPassword = self.passwordField.text;
+
+    // Login
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        BOOL success = [LoginHandler satLogin:satUsername :satPassword];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (success) {
+                [self loginSuccess];
+            }
+            else {
+                [self loginFaild];
+            }
         });
-    }
-    else {
-        [self loginFaild];
-    }
+    });
 }
 
 - (void)loginFaild {
@@ -132,6 +119,5 @@
 
 - (void)loginSuccess {
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
-
 }
 @end
