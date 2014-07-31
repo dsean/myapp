@@ -7,14 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #ifdef __cplusplus
 #include "sat_sdk_lib_config.h"
 #include "sat_sdk_lib_license.h"
 #endif
+
 @interface SatDevice : NSObject
+
 @property (nonatomic, copy) NSString *macAddress;
+
 #ifdef __cplusplus
-+ (NSMutableDictionary *)parseMyDevices:(const std::vector<DeviceEntry *> *)deviceEntries;
++ (NSMutableDictionary *)parseDeviceEntries:(const std::vector<DeviceEntry *> *)deviceEntries;
 #endif
 
 @end

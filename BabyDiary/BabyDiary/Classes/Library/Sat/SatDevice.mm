@@ -8,36 +8,33 @@
 
 #import "SatDevice.h"
 
-@interface SatDevice ()
-
-@end
-
 @implementation SatDevice
 @synthesize macAddress;
 
-+ (NSMutableDictionary *)parseMyDevices:(const std::vector<DeviceEntry *> *)deviceEntries {
-    NSMutableDictionary *userDevicesMap = [[NSMutableDictionary alloc] init];
-    
++ (NSMutableDictionary *)parseDeviceEntries:(const std::vector<DeviceEntry *> *)deviceEntries {
     if (deviceEntries == NULL) {
         return nil;
     }
     
+    NSMutableDictionary *uidToSatDevices = [[NSMutableDictionary alloc] init];
     NSInteger nDeviceEntries = deviceEntries->size();
     for (int i = 0; i < nDeviceEntries; i++) {
         DeviceEntry *deviceEntry = (*deviceEntries)[i];
-        NSString *deviceEntryUid = [NSString stringWithCString:deviceEntry->uid.c_str() encoding:[NSString defaultCStringEncoding]];
+        NSString *uid = [NSString stringWithCString:deviceEntry->uid.c_str() encoding:[NSString defaultCStringEncoding]];
         
         // If the uid does not exist, allocate a new SatDevice.
-        SatDevice *satDevice = [userDevicesMap objectForKey:deviceEntryUid];
+        SatDevice *satDevice = [uidToSatDevices objectForKey:uid];
         if (satDevice == nil) {
             satDevice = [[SatDevice alloc] init];
             satDevice.macAddress = [NSString stringWithCString:deviceEntry->mac_address.c_str() encoding:[NSString defaultCStringEncoding]];
+            
             // Collect SatDevice.
-            [userDevicesMap setObject:satDevice forKey:deviceEntryUid];
+            [uidToSatDevices setObject:satDevice forKey:uid];
         }
         
     }
     
-    return userDevicesMap;
+    return uidToSatDevices;
 }
+
 @end
