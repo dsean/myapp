@@ -8,69 +8,44 @@
 
 #import "SatManager.h"
 
-@implementation SatManager
-@synthesize userDeviceEntries, satServer, satServerPort, signalServer, signalServerPorts, satLoginBool;
+@interface SatManager ()
 
+@property (nonatomic, copy) NSString *satUsername;
+@property (nonatomic, copy) NSString *satPassword;
+
+@end
+
+@implementation SatManager
+@synthesize satServer, satServerPort, signalServer, signalServerPorts, uidToSatDevices;
+
+static NSString *_licensePath;
 static SatManager *_satManager;
 
--(id)init {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    if (!_satManager) {
-        _satManager = [SatManager alloc];
++ (void)setLicensePath:(NSString *)licensePath {
+    _licensePath = licensePath;
+}
+
++ (id)sharedSatManager {
+    @synchronized(self) {
+        if (_satManager == nil) {
+            _satManager = [[SatManager alloc] init];
+        }
     }
     return _satManager;
 }
 
-
--(NSMutableDictionary *)userDeviceEntries {
-    if (!userDeviceEntries) {
-        userDeviceEntries = [[NSMutableDictionary alloc] init];
+- (id)init {
+    self = [super init];
+    if (!self) {
+        return nil;
     }
-    return userDeviceEntries;
+
+    [self loadLicense];
+    return self;
 }
 
-- (void)getSatRequest:(NSString *)username :(NSString *)password {
-    p_sat_request = P2PFactory::CreateSATRequest([username UTF8String], [password UTF8String], p_license);
-}
-
-- (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType {
-    lastServiceType = serviceType;
-    lastDeviceType = deviceType;
-    
-    // Get device list.
-    const std::vector<DeviceEntry *> *deviceEntries = NULL;
-    
-    if (p_sat_request == NULL) {
-            
-        return -1;
-    }
-    int ret = -1;
-    int getDeviceEntryListRetry = 0;
-    while(getDeviceEntryListRetry < 2 && ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
-            ret = p_sat_request->GetDeviceEntryList(&deviceEntries, [serviceType UTF8String], [deviceType UTF8String]);
-            getDeviceEntryListRetry++;
-    }
-    //  to check deviceList
-    //  int n = deviceEntries->size();
-    
-    if (ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
-            
-
-        return ret;
-    }
-    userDeviceEntries = [SatDevice parseMyDevices:deviceEntries];
-    
-    return 0;
-}
-
-- (void)getLicenseForSatLogin: (NSString *)licenseName {
-    // Load license.
-    NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:licenseName];
-    
-    p_license = P2PFactory::CreateLicense([licensePath UTF8String]);
+- (void)loadLicense {
+    p_license = P2PFactory::CreateLicense([_licensePath UTF8String]);
     
     // Load license params.
     p_license->GetSATServer(sat_server, &sat_server_port);
@@ -80,6 +55,41 @@ static SatManager *_satManager;
     satServerPort = sat_server_port;
     signalServer = [NSString stringWithFormat:@"%s", signal_server];
     signalServerPorts = [[NSArray alloc] initWithObjects:@(signal_server_ports[0]), @(signal_server_ports[1]), @(signal_server_ports[2]), nil];
+}
+
+- (void)startSatService:(NSString *)username :(NSString *)password {
+    self.satUsername = username;
+    self.satPassword = password;
+    
+    p_sat_request = P2PFactory::CreateSATRequest([username UTF8String], [password UTF8String], p_license);
+}
+
+- (BOOL)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType {
+    if (p_sat_request == NULL) {
+        return NO;
+    }
+    
+    int ret = -1;
+    const std::vector<DeviceEntry *> *deviceEntries = NULL;
+    int getDeviceEntryListRetry = 0;
+    while(getDeviceEntryListRetry < 2 && ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
+        ret = p_sat_request->GetDeviceEntryList(&deviceEntries, [serviceType UTF8String], [deviceType UTF8String]);
+        getDeviceEntryListRetry++;
+    }
+    
+    if (ret != SAT_SDK_LIB_RET_NULL_SUCCESS){
+        return NO;
+    }
+    
+    uidToSatDevices = [SatDevice parseDeviceEntries:deviceEntries];
+    return YES;
+}
+
+- (NSMutableDictionary *)uidToSatDevices {
+    if (!uidToSatDevices) {
+        uidToSatDevices = [[NSMutableDictionary alloc] init];
+    }
+    return uidToSatDevices;
 }
 
 @end

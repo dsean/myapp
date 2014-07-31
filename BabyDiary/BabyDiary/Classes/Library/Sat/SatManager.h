@@ -17,35 +17,30 @@
 #endif
 
 #import "SatDevice.h"
+
 @interface SatManager : NSObject {
-    NSString *lastServiceType;
-    NSString *lastDeviceType;
-    // SAT SDK
 #ifdef __cplusplus
     IP2PLicense *p_license;
     IP2PSATRequest *p_sat_request;
-    
-    
-    // SAT config
+
     char sat_server[1024];
     unsigned short sat_server_port;
     char signal_server[1024];
     unsigned short signal_server_ports[5];
     int signal_server_ports_count;
-    
 #endif
 }
 
-
-@property (strong, nonatomic) NSMutableDictionary *userDeviceEntries;
 @property (strong, nonatomic) NSString *satServer;
 @property (nonatomic) NSInteger satServerPort;
 @property (strong, nonatomic) NSString *signalServer;
 @property (strong, nonatomic) NSArray *signalServerPorts;
-@property (nonatomic) BOOL satLoginBool;
+@property (strong, nonatomic) NSMutableDictionary *uidToSatDevices;
 
++ (void)setLicensePath:(NSString *)licensePath;
++ (id)sharedSatManager;
 
-- (NSInteger)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType;
-- (void)getLicenseForSatLogin: (NSString *)licenseName;
-- (void)getSatRequest:(NSString *)username :(NSString *)password;
+- (void)startSatService:(NSString *)username :(NSString *)password;
+- (BOOL)requestSatDevicesByServiceType:(NSString *)serviceType andDeviceType:(NSString *)deviceType;
+
 @end
