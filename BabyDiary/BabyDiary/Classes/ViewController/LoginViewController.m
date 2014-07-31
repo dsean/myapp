@@ -8,12 +8,12 @@
 
 #import "LoginViewController.h"
 
-#import "SatLoginHandler.h"
+#import "LoginHandler.h"
 #import "ContentViewController.h"
 #import "SatManager.h"
 @interface LoginViewController ()
 
-@property(strong, nonatomic) SatLoginHandler *satLogin;
+@property (strong, nonatomic) LoginHandler *satLogin;
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -29,9 +29,9 @@
 
 @implementation LoginViewController
 
-- (SatLoginHandler *)satLogin {
+- (LoginHandler *)satLogin {
     if (!_satLogin) {
-        _satLogin = [[SatLoginHandler alloc] init];
+        _satLogin = [[LoginHandler alloc] init];
     }
     return _satLogin;
 }

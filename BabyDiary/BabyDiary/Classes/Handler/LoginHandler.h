@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SatManager.h"
 
-@interface SatLoginHandler : NSObject 
+@interface LoginHandler : NSObject 
 
 
 @property (nonatomic) BOOL satLoginCheck;

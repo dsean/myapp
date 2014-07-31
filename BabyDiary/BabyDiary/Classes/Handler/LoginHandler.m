@@ -7,11 +7,11 @@
 //
 
 
-#import "SatLoginHandler.h"
-@interface SatLoginHandler ()
+#import "LoginHandler.h"
+@interface LoginHandler ()
 @property (strong, nonatomic) SatManager *satManager;
 @end
-@implementation SatLoginHandler
+@implementation LoginHandler
 @synthesize satLoginCheck;
 
 - (SatManager *)satManager {
@@ -23,8 +23,7 @@
 
 - (void)satLogin:(NSString *)satUsername :(NSString *)satPassword {
     
-    [self.satManager getLicenseForSatLogin: @"license"];
-    [_satManager getSatRequest:satUsername :satPassword];
+    [self.satManager getSatRequest:satUsername :satPassword];
     
     int ret = [_satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p"];
 

@@ -33,12 +33,12 @@
 		14ACF05F1989F3900019441F /* libpjlib-util-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ACF0531989F3900019441F /* libpjlib-util-arm-apple-darwin9.a */; };
 		14ACF0601989F3900019441F /* libpjnath-arm-apple-darwin9.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ACF0541989F3900019441F /* libpjnath-arm-apple-darwin9.a */; };
 		14ACF0611989F3900019441F /* libpolarssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14ACF0551989F3900019441F /* libpolarssl.a */; };
-		14ACF0661989F8250019441F /* SatLoginHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF0651989F8250019441F /* SatLoginHandler.m */; };
 		14ACF0731989F8590019441F /* SatDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF0691989F8590019441F /* SatDevice.mm */; };
 		14ACF0741989F8590019441F /* SatManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF06B1989F8590019441F /* SatManager.mm */; };
 		14ACF0751989F8590019441F /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF06E1989F8590019441F /* ContentViewController.m */; };
 		14ACF0761989F8590019441F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF0701989F8590019441F /* LoginViewController.m */; };
 		14ACF0771989F8590019441F /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF0721989F8590019441F /* NavigationViewController.m */; };
+		14ACF07A198A268B0019441F /* LoginHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF079198A268B0019441F /* LoginHandler.m */; };
 		14B9FEC119809E6400EB0C75 /* license in Resources */ = {isa = PBXBuildFile; fileRef = 14B9FEC019809E6400EB0C75 /* license */; };
 /* End PBXBuildFile section */
 
@@ -237,8 +237,6 @@
 		14ACF0531989F3900019441F /* libpjlib-util-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpjlib-util-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		14ACF0541989F3900019441F /* libpjnath-arm-apple-darwin9.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpjnath-arm-apple-darwin9.a"; sourceTree = "<group>"; };
 		14ACF0551989F3900019441F /* libpolarssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpolarssl.a; sourceTree = "<group>"; };
-		14ACF0641989F8250019441F /* SatLoginHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SatLoginHandler.h; path = Classes/Handler/SatLoginHandler.h; sourceTree = "<group>"; };
-		14ACF0651989F8250019441F /* SatLoginHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SatLoginHandler.m; path = Classes/Handler/SatLoginHandler.m; sourceTree = "<group>"; };
 		14ACF0681989F8590019441F /* SatDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatDevice.h; sourceTree = "<group>"; };
 		14ACF0691989F8590019441F /* SatDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SatDevice.mm; sourceTree = "<group>"; };
 		14ACF06A1989F8590019441F /* SatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatManager.h; sourceTree = "<group>"; };
@@ -249,6 +247,8 @@
 		14ACF0701989F8590019441F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		14ACF0711989F8590019441F /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		14ACF0721989F8590019441F /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		14ACF078198A268B0019441F /* LoginHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginHandler.h; path = Classes/Handler/LoginHandler.h; sourceTree = "<group>"; };
+		14ACF079198A268B0019441F /* LoginHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginHandler.m; path = Classes/Handler/LoginHandler.m; sourceTree = "<group>"; };
 		14B9FEC019809E6400EB0C75 /* license */ = {isa = PBXFileReference; lastKnownFileType = file; path = license; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -636,8 +636,8 @@
 		14ACF0631989F7BE0019441F /* Handler */ = {
 			isa = PBXGroup;
 			children = (
-				14ACF0641989F8250019441F /* SatLoginHandler.h */,
-				14ACF0651989F8250019441F /* SatLoginHandler.m */,
+				14ACF078198A268B0019441F /* LoginHandler.h */,
+				14ACF079198A268B0019441F /* LoginHandler.m */,
 			);
 			name = Handler;
 			sourceTree = "<group>";
@@ -773,9 +773,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				14ACF0731989F8590019441F /* SatDevice.mm in Sources */,
+				14ACF07A198A268B0019441F /* LoginHandler.m in Sources */,
 				14ACF0741989F8590019441F /* SatManager.mm in Sources */,
 				14ACF0751989F8590019441F /* ContentViewController.m in Sources */,
-				14ACF0661989F8250019441F /* SatLoginHandler.m in Sources */,
 				14ACF0771989F8590019441F /* NavigationViewController.m in Sources */,
 				14ACF0761989F8590019441F /* LoginViewController.m in Sources */,
 				14ACEFA21989EE3D0019441F /* AppDelegate.m in Sources */,
