@@ -11,6 +11,7 @@
 #import "ContentViewController.h"
 #import "LoginHandler.h"
 #import "SatManager.h"
+#import "UserPreferences.h"
 
 @interface LoginViewController ()
 
@@ -118,6 +119,12 @@
 }
 
 - (void)loginSuccess {
+    NSString *satUsername = self.usernameField.text;
+    NSString *satPassword = self.passwordField.text;
+    
+    [[UserPreferences sharedUserPreferences] tosetUsername:satUsername];
+    [[UserPreferences sharedUserPreferences] tosetPassword:satPassword];
+    
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
 @end
