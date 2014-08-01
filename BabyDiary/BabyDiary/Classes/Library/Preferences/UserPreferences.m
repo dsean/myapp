@@ -49,4 +49,5 @@ static NSUserDefaults *defaults;
     _defaultsPassword = [defaults stringForKey:@"password"];
     return _defaultsPassword;
 }
+
 @end
