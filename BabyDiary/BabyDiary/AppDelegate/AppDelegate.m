@@ -9,8 +9,14 @@
 #import "AppDelegate.h"
 #import "SatManager.h"
 #import "UserPreferences.h"
+#import "LoginHandler.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, copy) NSString *defaultusername;
+@property (nonatomic, copy) NSString *defaultpassword;
+@property (nonatomic) BOOL checkDefaultValuesTiLogin;
+@property (nonatomic) BOOL checkLoginStatus;
 
 @end
 
@@ -22,7 +28,15 @@
     NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"license"];
     [SatManager setLicensePath:licensePath];
     
-    NSLog(@"%@",[[UserPreferences sharedUserPreferences] togetUsername]);
+    _defaultusername = [[UserPreferences sharedUserPreferences] togetUsername];
+    _defaultpassword = [[UserPreferences sharedUserPreferences] togetPassword];
+    if (_defaultusername == NULL || _defaultpassword == NULL) {
+        _checkDefaultValuesTiLogin = NO;
+    }
+    else {
+         _checkDefaultValuesTiLogin = YES;
+        _checkLoginStatus = [LoginHandler satLogin:_defaultusername :_defaultpassword];
+    }
     return YES;
 }
 							
@@ -43,9 +57,12 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    if (_checkDefaultValuesTiLogin) {
+        if (_checkLoginStatus) {
+            [self.window.rootViewController performSegueWithIdentifier:@"loginSegue" sender:self.window.rootViewController];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
