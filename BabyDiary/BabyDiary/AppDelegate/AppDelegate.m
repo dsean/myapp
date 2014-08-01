@@ -8,14 +8,21 @@
 
 #import "AppDelegate.h"
 #import "SatManager.h"
+#import "UserPreferences.h"
+
+@interface AppDelegate ()
+
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    
     NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"license"];
     [SatManager setLicensePath:licensePath];
+    
+    NSLog(@"%@",[[UserPreferences sharedUserPreferences] togetUsername]);
     return YES;
 }
 							

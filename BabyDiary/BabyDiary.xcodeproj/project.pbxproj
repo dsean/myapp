@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14376498198B2DA50058CD48 /* UserPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 14376497198B2DA50058CD48 /* UserPreferences.m */; };
 		144B0C55196BFD7E00166644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B0C54196BFD7E00166644 /* Foundation.framework */; };
 		144B0C57196BFD7E00166644 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B0C56196BFD7E00166644 /* CoreGraphics.framework */; };
 		144B0C59196BFD7E00166644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144B0C58196BFD7E00166644 /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14376496198B2DA50058CD48 /* UserPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserPreferences.h; path = Preferences/UserPreferences.h; sourceTree = "<group>"; };
+		14376497198B2DA50058CD48 /* UserPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserPreferences.m; path = Preferences/UserPreferences.m; sourceTree = "<group>"; };
 		144B0C51196BFD7E00166644 /* BabyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144B0C54196BFD7E00166644 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		144B0C56196BFD7E00166644 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -286,6 +289,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14376495198B2D7A0058CD48 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				14376496198B2DA50058CD48 /* UserPreferences.h */,
+				14376497198B2DA50058CD48 /* UserPreferences.m */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 		144B0C48196BFD7E00166644 = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +669,7 @@
 		14ACF086198A39CC0019441F /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				14376495198B2D7A0058CD48 /* Preferences */,
 				14ACF087198A39CC0019441F /* Sat */,
 			);
 			path = Library;
@@ -786,6 +799,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14376498198B2DA50058CD48 /* UserPreferences.m in Sources */,
 				14ACF091198A39CC0019441F /* SatManager.mm in Sources */,
 				14ACF08D198A39CC0019441F /* LoginViewController.m in Sources */,
 				14ACEFA21989EE3D0019441F /* AppDelegate.m in Sources */,
