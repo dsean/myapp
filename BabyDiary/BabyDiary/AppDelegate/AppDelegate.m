@@ -68,8 +68,8 @@
 #pragma mark-toolMethods
 
 - (BOOL)hasAccount {
-    self.defaultusername = [[UserPreferences sharedUserPreferences] togetUsername];
-    self.defaultpassword = [[UserPreferences sharedUserPreferences] togetPassword];
+    self.defaultusername = [[UserPreferences sharedUserPreferences] defaultsUsername];
+    self.defaultpassword = [[UserPreferences sharedUserPreferences] defaultsPassword];
     if (_defaultusername == NULL || _defaultpassword == NULL) {
         return NO;
     }

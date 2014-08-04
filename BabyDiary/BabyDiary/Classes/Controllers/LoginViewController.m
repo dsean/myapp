@@ -121,9 +121,7 @@
 - (void)loginSuccess {
     NSString *satUsername = self.usernameField.text;
     NSString *satPassword = self.passwordField.text;
-    
-    [[UserPreferences sharedUserPreferences] tosetUsername:satUsername];
-    [[UserPreferences sharedUserPreferences] tosetPassword:satPassword];
+    [LoginHandler userLoginSuccess:satUsername:satPassword];
     
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
