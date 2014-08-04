@@ -59,11 +59,16 @@
     return success;
 }
 
++ (void)userLoginSuccess:(NSString *)satUsername :(NSString *)satPassword {
+    [[UserPreferences sharedUserPreferences] setDefaultsUsername:satUsername];
+    [[UserPreferences sharedUserPreferences] setDefaultsPassword:satPassword];
+}
+
 #pragma mark-userLogout
 
 + (BOOL)userLogout {
-    [[UserPreferences sharedUserPreferences] tosetUsername:NULL];
-    [[UserPreferences sharedUserPreferences] tosetPassword:NULL];
+    [[UserPreferences sharedUserPreferences] setDefaultsUsername:NULL];
+    [[UserPreferences sharedUserPreferences] setDefaultsPassword:NULL];
     return YES;
 }
 
