@@ -10,6 +10,7 @@
 #import "SatManager.h"
 #import "SatDevice.h"
 #import "UserPreferences.h"
+#import "LoginHandler.h"
 
 @interface ContentViewController ()
 
@@ -46,8 +47,7 @@
 }
 
 - (void)onTouchLeftButton {
-    [[UserPreferences sharedUserPreferences] tosetUsername:NULL];
-    [[UserPreferences sharedUserPreferences] tosetPassword:NULL];
+    [LoginHandler userLogout];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
