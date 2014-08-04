@@ -14,9 +14,5 @@
 @property (nonatomic, copy) NSString *defaultsPassword;
 
 + (id)sharedUserPreferences;
-- (void)tosetUsername:(NSString *)username;
-- (void)tosetPassword:(NSString *)password;
-- (NSString *)togetUsername;
-- (NSString *)togetPassword;
 
 @end

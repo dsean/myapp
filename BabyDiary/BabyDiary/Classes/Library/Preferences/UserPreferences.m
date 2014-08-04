@@ -10,6 +10,8 @@
 
 @implementation UserPreferences
 
+@synthesize defaultsUsername,defaultsPassword;
+
 static UserPreferences *userPreferences;
 static NSUserDefaults *defaults;
 
@@ -22,32 +24,30 @@ static NSUserDefaults *defaults;
     return userPreferences;
 }
 
-- (void)tosetUsername:(NSString *)username {
+- (void)setDefaultsUsername:(NSString *)username {
     
     [defaults setValue:username forKeyPath:@"username"];
     [defaults synchronize];
-    _defaultsUsername = username;
+    defaultsUsername = username;
 }
 
-- (void)tosetPassword:(NSString *)password {
+- (void)setDefaultsPassword:(NSString *)password {
     
     [defaults setValue:password forKeyPath:@"password"];
     [defaults synchronize];
-    _defaultsPassword = password;
+    defaultsPassword = password;
 }
 
-- (NSString *)togetUsername {
+- (NSString *)defaultsUsername {
     
     defaults = [NSUserDefaults standardUserDefaults];
-    _defaultsUsername = [defaults stringForKey:@"username"];
-    return _defaultsUsername;
+    return [defaults stringForKey:@"username"];
 }
 
-- (NSString *)togetPassword {
+- (NSString *)defaultsPassword {
     
     defaults = [NSUserDefaults standardUserDefaults];
-    _defaultsPassword = [defaults stringForKey:@"password"];
-    return _defaultsPassword;
+    return [defaults stringForKey:@"password"];
 }
 
 @end
