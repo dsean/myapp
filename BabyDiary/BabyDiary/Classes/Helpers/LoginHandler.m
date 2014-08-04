@@ -11,6 +11,8 @@
 
 @implementation LoginHandler
 
+#pragma mark-checkInput
+
 + (BOOL)validateUsername:(NSString *)username {
     // format: allow "a~z, A~Z, 0~9, - and _"
     if ([username length] < 4 || [username length] > 32) {
@@ -43,6 +45,8 @@
     return YES;
 }
 
+#pragma mark-userLogin
+
 + (BOOL)satLogin:(NSString *)satUsername :(NSString *)satPassword {
     if ([LoginHandler validateUsername:satUsername] == NO ||
         [LoginHandler validatePassword:satPassword] == NO) {
@@ -53,6 +57,14 @@
     [satManager startSatService:satUsername :satPassword];
     BOOL success = [satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p"];
     return success;
+}
+
+#pragma mark-userLogout
+
++ (BOOL)userLogout {
+    [[UserPreferences sharedUserPreferences] tosetUsername:NULL];
+    [[UserPreferences sharedUserPreferences] tosetPassword:NULL];
+    return YES;
 }
 
 @end

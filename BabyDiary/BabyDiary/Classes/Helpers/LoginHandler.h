@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SatManager.h"
+#import "UserPreferences.h"
 
 @interface LoginHandler : NSObject
 
 + (BOOL)validateUsername:(NSString *)username;
 + (BOOL)validatePassword:(NSString *)password;
 + (BOOL)satLogin:(NSString *)satUsername :(NSString *)satPassword;
++ (BOOL)userLogout;
 
 @end
