@@ -14,8 +14,8 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, copy) NSString *defaultusername;
-@property (nonatomic, copy) NSString *defaultpassword;
+@property (nonatomic, copy) NSString *defaultsUsername;
+@property (nonatomic, copy) NSString *defaultsPassword;
 @property (nonatomic) BOOL isLogin;
 
 @end
@@ -28,9 +28,9 @@
     NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"license"];
     [SatManager setLicensePath:licensePath];
     
-    if ([self hasAccount]) {
+    if ([self loginDefaultsAccount]) {
         // this is a blocking method
-        self.isLogin = [AccountHandler login:_defaultusername :_defaultpassword];
+        self.isLogin = [AccountHandler login:self.defaultsUsername :self.defaultsPassword];
     }
     return YES;
 }
@@ -60,10 +60,10 @@
 
 #pragma mark-toolMethods
 
-- (BOOL)hasAccount {
-    self.defaultusername = [[UserPreferences sharedUserPreferences] defaultsUsername];
-    self.defaultpassword = [[UserPreferences sharedUserPreferences] defaultsPassword];
-    if (_defaultusername == NULL || _defaultpassword == NULL) {
+- (BOOL)loginDefaultsAccount {
+    self.defaultsUsername = [[UserPreferences sharedUserPreferences] defaultsUsername];
+    self.defaultsPassword = [[UserPreferences sharedUserPreferences] defaultsPassword];
+    if (self.defaultsUsername == NULL || self.defaultsPassword == NULL) {
         return NO;
     }
     return YES;

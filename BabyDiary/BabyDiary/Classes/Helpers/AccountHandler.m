@@ -54,17 +54,17 @@
     [satManager startSatService:satUsername :satPassword];
     BOOL success = [satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p"];
     if (success) {
-        [self storageDefaultAccounts:satUsername :satPassword];
+        [self storageDefaultsAccount:satUsername :satPassword];
     }
     return success;
 }
 
 + (BOOL)logout {
-    [self storageDefaultAccounts:NULL :NULL];
+    [self storageDefaultsAccount:NULL :NULL];
     return YES;
 }
 
-+ (void)storageDefaultAccounts:(NSString *)satUsername :(NSString *)satPassword {
++ (void)storageDefaultsAccount:(NSString *)satUsername :(NSString *)satPassword {
     [[UserPreferences sharedUserPreferences] setDefaultsUsername:satUsername];
     [[UserPreferences sharedUserPreferences] setDefaultsPassword:satPassword];
 }
