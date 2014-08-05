@@ -28,27 +28,23 @@ static NSUserDefaults *defaults;
 }
 
 - (void)setDefaultsUsername:(NSString *)username {
-    
     [defaults setValue:username forKeyPath:KEY_USERNANE];
     [defaults synchronize];
     defaultsUsername = username;
 }
 
 - (void)setDefaultsPassword:(NSString *)password {
-    
     [defaults setValue:password forKeyPath:KEY_PASSWORD];
     [defaults synchronize];
     defaultsPassword = password;
 }
 
 - (NSString *)defaultsUsername {
-    
     defaults = [NSUserDefaults standardUserDefaults];
     return [defaults stringForKey:KEY_USERNANE];
 }
 
 - (NSString *)defaultsPassword {
-    
     defaults = [NSUserDefaults standardUserDefaults];
     return [defaults stringForKey:KEY_PASSWORD];
 }

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SatManager.h"
-#import "LoginHandler.h"
+#import "AccountHandler.h"
 #import "UserPreferences.h"
 
 
@@ -30,7 +30,7 @@
     
     if ([self hasAccount]) {
         // this is a blocking method
-        self.isLogin = [LoginHandler login:_defaultusername :_defaultpassword];
+        self.isLogin = [AccountHandler login:_defaultusername :_defaultpassword];
     }
     return YES;
 }

@@ -10,7 +10,7 @@
 #import "SatManager.h"
 #import "UserPreferences.h"
 
-@interface LoginHandler : NSObject
+@interface AccountHandler : NSObject
 
 + (BOOL)validateUsername:(NSString *)username;
 + (BOOL)validatePassword:(NSString *)password;

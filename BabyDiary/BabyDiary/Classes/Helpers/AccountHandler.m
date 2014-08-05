@@ -7,9 +7,9 @@
 //
 
 
-#import "LoginHandler.h"
+#import "AccountHandler.h"
 
-@implementation LoginHandler
+@implementation AccountHandler
 
 #pragma mark-checkInput
 
@@ -48,8 +48,8 @@
 #pragma mark-userLogin
 
 + (BOOL)login:(NSString *)satUsername :(NSString *)satPassword {
-    if ([LoginHandler validateUsername:satUsername] == NO ||
-        [LoginHandler validatePassword:satPassword] == NO) {
+    if ([AccountHandler validateUsername:satUsername] == NO ||
+        [AccountHandler validatePassword:satPassword] == NO) {
         return NO;
     }
 

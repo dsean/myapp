@@ -10,7 +10,7 @@
 #import "SatManager.h"
 #import "SatDevice.h"
 #import "UserPreferences.h"
-#import "LoginHandler.h"
+#import "AccountHandler.h"
 
 @interface ContentViewController ()
 
@@ -47,7 +47,7 @@
 }
 
 - (void)onTouchLeftButton {
-    [LoginHandler logout];
+    [AccountHandler logout];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

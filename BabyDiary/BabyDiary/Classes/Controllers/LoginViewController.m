@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 
 #import "ContentViewController.h"
-#import "LoginHandler.h"
+#import "AccountHandler.h"
 #import "SatManager.h"
 #import "UserPreferences.h"
 
@@ -99,7 +99,7 @@
 
     // Login
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        BOOL success = [LoginHandler login:satUsername :satPassword];
+        BOOL success = [AccountHandler login:satUsername :satPassword];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             if (success) {

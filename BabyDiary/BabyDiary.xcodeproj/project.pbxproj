@@ -36,11 +36,11 @@
 		14ACF08C198A39CC0019441F /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF07E198A39CC0019441F /* ContentViewController.m */; };
 		14ACF08D198A39CC0019441F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF080198A39CC0019441F /* LoginViewController.m */; };
 		14ACF08E198A39CC0019441F /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF082198A39CC0019441F /* NavigationController.m */; };
-		14ACF08F198A39CC0019441F /* LoginHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF085198A39CC0019441F /* LoginHandler.m */; };
 		14ACF090198A39CC0019441F /* SatDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF089198A39CC0019441F /* SatDevice.mm */; };
 		14ACF091198A39CC0019441F /* SatManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14ACF08B198A39CC0019441F /* SatManager.mm */; };
 		14ACF094198A39E60019441F /* license in Resources */ = {isa = PBXBuildFile; fileRef = 14ACF093198A39E60019441F /* license */; };
 		14ACF096198A3A4E0019441F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14ACF095198A3A4E0019441F /* Images.xcassets */; };
+		14AFD72519907C6000AC664B /* AccountHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AFD72419907C6000AC664B /* AccountHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,14 +245,14 @@
 		14ACF080198A39CC0019441F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		14ACF081198A39CC0019441F /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		14ACF082198A39CC0019441F /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
-		14ACF084198A39CC0019441F /* LoginHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHandler.h; sourceTree = "<group>"; };
-		14ACF085198A39CC0019441F /* LoginHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHandler.m; sourceTree = "<group>"; };
 		14ACF088198A39CC0019441F /* SatDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatDevice.h; sourceTree = "<group>"; };
 		14ACF089198A39CC0019441F /* SatDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SatDevice.mm; sourceTree = "<group>"; };
 		14ACF08A198A39CC0019441F /* SatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatManager.h; sourceTree = "<group>"; };
 		14ACF08B198A39CC0019441F /* SatManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SatManager.mm; sourceTree = "<group>"; };
 		14ACF093198A39E60019441F /* license */ = {isa = PBXFileReference; lastKnownFileType = file; path = license; sourceTree = "<group>"; };
 		14ACF095198A3A4E0019441F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		14AFD72319907C6000AC664B /* AccountHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHandler.h; sourceTree = "<group>"; };
+		14AFD72419907C6000AC664B /* AccountHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,8 +660,8 @@
 		14ACF083198A39CC0019441F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				14ACF084198A39CC0019441F /* LoginHandler.h */,
-				14ACF085198A39CC0019441F /* LoginHandler.m */,
+				14AFD72319907C6000AC664B /* AccountHandler.h */,
+				14AFD72419907C6000AC664B /* AccountHandler.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -801,11 +801,11 @@
 			files = (
 				14376498198B2DA50058CD48 /* UserPreferences.m in Sources */,
 				14ACF091198A39CC0019441F /* SatManager.mm in Sources */,
+				14AFD72519907C6000AC664B /* AccountHandler.m in Sources */,
 				14ACF08D198A39CC0019441F /* LoginViewController.m in Sources */,
 				14ACEFA21989EE3D0019441F /* AppDelegate.m in Sources */,
 				14ACF08E198A39CC0019441F /* NavigationController.m in Sources */,
 				144B0C61196BFD7E00166644 /* main.m in Sources */,
-				14ACF08F198A39CC0019441F /* LoginHandler.m in Sources */,
 				14ACF090198A39CC0019441F /* SatDevice.mm in Sources */,
 				14ACF08C198A39CC0019441F /* ContentViewController.m in Sources */,
 			);
