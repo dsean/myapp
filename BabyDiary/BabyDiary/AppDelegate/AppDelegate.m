@@ -28,7 +28,7 @@
     NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"license"];
     [SatManager setLicensePath:licensePath];
     
-    if ([self loginDefaultsAccount]) {
+    if ([self loadDefaultsAccount]) {
         // this is a blocking method
         self.isLogin = [AccountHandler login:self.defaultsUsername :self.defaultsPassword];
     }
@@ -60,7 +60,7 @@
 
 #pragma mark-toolMethods
 
-- (BOOL)loginDefaultsAccount {
+- (BOOL)loadDefaultsAccount {
     self.defaultsUsername = [[UserPreferences sharedUserPreferences] defaultsUsername];
     self.defaultsPassword = [[UserPreferences sharedUserPreferences] defaultsPassword];
     if (self.defaultsUsername == NULL || self.defaultsPassword == NULL) {
