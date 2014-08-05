@@ -47,7 +47,7 @@
 
 #pragma mark-userLogin
 
-+ (BOOL)satLogin:(NSString *)satUsername :(NSString *)satPassword {
++ (BOOL)login:(NSString *)satUsername :(NSString *)satPassword {
     if ([LoginHandler validateUsername:satUsername] == NO ||
         [LoginHandler validatePassword:satPassword] == NO) {
         return NO;
@@ -56,17 +56,20 @@
     SatManager *satManager = [SatManager sharedSatManager];
     [satManager startSatService:satUsername :satPassword];
     BOOL success = [satManager requestSatDevicesByServiceType:@"camera,nvr" andDeviceType:@"p2p"];
+    if (success) {
+        [self rewriteDefaultValues:satUsername :satPassword];
+    }
     return success;
 }
 
-+ (void)userLoginSuccess:(NSString *)satUsername :(NSString *)satPassword {
++ (void)rewriteDefaultValues:(NSString *)satUsername :(NSString *)satPassword {
     [[UserPreferences sharedUserPreferences] setDefaultsUsername:satUsername];
     [[UserPreferences sharedUserPreferences] setDefaultsPassword:satPassword];
 }
 
 #pragma mark-userLogout
 
-+ (BOOL)userLogout {
++ (BOOL)logout {
     [[UserPreferences sharedUserPreferences] setDefaultsUsername:NULL];
     [[UserPreferences sharedUserPreferences] setDefaultsPassword:NULL];
     return YES;

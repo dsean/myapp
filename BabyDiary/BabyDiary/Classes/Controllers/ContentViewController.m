@@ -47,7 +47,7 @@
 }
 
 - (void)onTouchLeftButton {
-    [LoginHandler userLogout];
+    [LoginHandler logout];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

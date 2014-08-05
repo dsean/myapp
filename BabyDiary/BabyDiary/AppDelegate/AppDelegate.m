@@ -30,7 +30,7 @@
     
     if ([self hasAccount]) {
         // this is a blocking method
-        self.isLogin = [LoginHandler satLogin:_defaultusername :_defaultpassword];
+        self.isLogin = [LoginHandler login:_defaultusername :_defaultpassword];
     }
     return YES;
 }

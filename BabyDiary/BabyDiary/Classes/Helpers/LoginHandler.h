@@ -14,9 +14,8 @@
 
 + (BOOL)validateUsername:(NSString *)username;
 + (BOOL)validatePassword:(NSString *)password;
-+ (BOOL)satLogin:(NSString *)satUsername :(NSString *)satPassword;
-+ (void)userLoginSuccess:(NSString *)satUsername :(NSString *)satPassword;
-+ (BOOL)userLogout;
++ (BOOL)login:(NSString *)satUsername :(NSString *)satPassword;
++ (BOOL)logout;
 
 
 @end

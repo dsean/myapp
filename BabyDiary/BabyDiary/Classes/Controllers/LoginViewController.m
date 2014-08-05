@@ -99,7 +99,7 @@
 
     // Login
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        BOOL success = [LoginHandler satLogin:satUsername :satPassword];
+        BOOL success = [LoginHandler login:satUsername :satPassword];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             if (success) {
@@ -119,9 +119,6 @@
 }
 
 - (void)loginSuccess {
-    NSString *satUsername = self.usernameField.text;
-    NSString *satPassword = self.passwordField.text;
-    [LoginHandler userLoginSuccess:satUsername:satPassword];
     
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
