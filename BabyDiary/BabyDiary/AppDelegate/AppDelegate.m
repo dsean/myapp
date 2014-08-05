@@ -16,8 +16,7 @@
 
 @property (nonatomic, copy) NSString *defaultusername;
 @property (nonatomic, copy) NSString *defaultpassword;
-@property (nonatomic) BOOL isDefaultValuesLogin;
-@property (nonatomic) BOOL isLoginStatus;
+@property (nonatomic) BOOL isLogin;
 
 @end
 
@@ -29,14 +28,9 @@
     NSString *licensePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"license"];
     [SatManager setLicensePath:licensePath];
     
-    if (![self hasAccount]) {
-        self.isDefaultValuesLogin = NO;
-    }
-    else {
-         self.isDefaultValuesLogin = YES;
-        
+    if ([self hasAccount]) {
         // this is a blocking method
-        self.isLoginStatus = [LoginHandler satLogin:_defaultusername :_defaultpassword];
+        self.isLogin = [LoginHandler satLogin:_defaultusername :_defaultpassword];
     }
     return YES;
 }
@@ -54,11 +48,10 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    if (self.isDefaultValuesLogin) {
-        if (self.isLoginStatus) {
-            [self.window.rootViewController performSegueWithIdentifier:@"loginSegue" sender:self.window.rootViewController];
-        }
+    if (self.isLogin) {
+        [self.window.rootViewController performSegueWithIdentifier:@"loginSegue" sender:self.window.rootViewController];
     }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
